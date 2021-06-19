@@ -1,0 +1,32 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="orderStateManager" class="com.beppe.utils.OrderStateManagerImpl" primary="true">
+        <constructor-arg index="0">
+            <map>
+                <!--创建订单-->
+                <entry key="create.order" value-ref="createOrderEventHandler"/>
+            </map>
+        </constructor-arg>
+        <constructor-arg index="1">
+            <map/>
+        </constructor-arg>
+        <constructor-arg index="2">
+            <map/>
+        </constructor-arg>
+    </bean>
+
+
+
+    <bean id="orderCommandFactory" class="com.beppe.order.OrderCommandFactoryImpl">
+        <constructor-arg index="0">
+            <list>
+                <!--持久化订单-->
+                <ref bean="persistOrderCommand"/>
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>

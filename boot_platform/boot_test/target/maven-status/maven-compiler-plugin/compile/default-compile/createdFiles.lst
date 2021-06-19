@@ -1,0 +1,4 @@
+com/monco/config/RedisConfiguration.class
+com/monco/entity/User.class
+com/monco/entity/Classes.class
+com/monco/config/RedisService.class

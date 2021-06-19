@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.monco.mapper.UserMapper">
+
+	<select id="selectByPrimaryKey" resultType="com.monco.entity.User" >
+		select
+		id, username, password, real_name
+		from user
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+
+
+	<select id="selectUserList" resultType="com.monco.entity.User">
+		select
+		id, username, password, real_name
+		from user
+		<where>
+			<if test="params.idList!=null">
+				id in
+				<foreach collection="params.idList" item="item" index="index" open="(" close=")" separator=",">
+					#{item}
+				</foreach>
+			</if>
+			<if test="params.realNameList!=null">
+				and real_name in
+				<foreach collection="params.realNameList" item="item" index="index" open="(" close=")" separator=",">
+					#{item}
+				</foreach>
+			</if>
+		</where>
+	</select>
+
+</mapper>
