@@ -59,5 +59,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- Hystrix 熔断-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <version>2.2.4.RELEASE</version>
+        </dependency>
     </dependencies>
 </project>

@@ -28,6 +28,7 @@
         <module>boot_dubbo_api</module>
         <module>boot_dubbo_consumer</module>
         <module>boot_dubbo_provider</module>
+        <module>boot_extention_framework</module>
     </modules>
 
 

@@ -1,4 +1,4 @@
-package com.beppe.service.impl;
+package com.beppe.service;
 
 import com.beppe.api.HttpApi;
 import com.beppe.bean.User;

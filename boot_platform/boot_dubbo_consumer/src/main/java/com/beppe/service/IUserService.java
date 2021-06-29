@@ -2,5 +2,5 @@ package com.beppe.service;
 
 public interface IUserService {
 
-    void buyGoods() throws InterruptedException;
+    String buyGoods() throws InterruptedException;
 }

@@ -1,4 +1,4 @@
-package com.beppe.service.impl;
+package com.beppe.service;
 
 import com.beppe.model.OrderEntity;
 import com.beppe.fuse.OrderEvent;

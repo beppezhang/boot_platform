@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>boot_test</artifactId>
+    <artifactId>boot_extention_framework</artifactId>
 
-    <description>用于测试代码使用</description>
+    <description>扩展点框架</description>
 
     <dependencies>
         <!-- spring boot -->
