@@ -6,7 +6,7 @@ import lombok.Data;
 // 订单执行上下文
 @Data
 @Builder
-public class OrderExecContext {
+public class OrderExecContext implements DomainModel{
 
     /**
      * 行为编码 (执行动作)

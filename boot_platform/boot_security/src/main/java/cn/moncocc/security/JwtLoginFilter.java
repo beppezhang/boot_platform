@@ -66,7 +66,7 @@ public class JwtLoginFilter extends UsernamePasswordAuthenticationFilter {
 
 		JwtAuthenticatioToken authRequest = new JwtAuthenticatioToken(username, password);
 
-		// Allow subclasses to set the "details" property
+		// Allow subclasses to step the "details" property
 		setDetails(request, authRequest);
 
 		return this.getAuthenticationManager().authenticate(authRequest);

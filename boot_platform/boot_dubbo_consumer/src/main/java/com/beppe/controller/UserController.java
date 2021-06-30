@@ -21,7 +21,7 @@ public class UserController {
     @RequestMapping("user")
     @ResponseBody
     public String makeOrder() {
-        // 摸你1000qps的并发
+        // 1000qps的并发
         for (int i = 0; i < 100; i++) {
             pool.execute(new Runnable() {
                 @Override

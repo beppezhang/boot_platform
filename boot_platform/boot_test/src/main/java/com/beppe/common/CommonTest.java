@@ -2,13 +2,12 @@ package com.beppe.common;
 
 
 import com.beppe.entity.User;
-import org.testng.annotations.Test;
 
 import java.util.Objects;
 
 public class CommonTest {
 
-    @Test
+//    @Test
     public void test1() {
         boolean flag = Objects.isNull(null);
         System.out.println("fla==" + flag);
@@ -18,7 +17,7 @@ public class CommonTest {
 
     }
 
-    @Test
+//    @Test
     public void test2() {
         User u = null;
         if (u == null) {
