@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>boot_test</artifactId>
+    <artifactId>boot_annotation</artifactId>
 
-    <description>用于测试代码使用</description>
+    <description>自定义注解SDK</description>
 
     <dependencies>
         <!-- spring boot -->
@@ -23,11 +23,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+
         <!-- lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -40,32 +36,13 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.3</version>
         </dependency>
-        <!-- jackson -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-        </dependency>
+
         <!-- commons集成-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.4</version>
         </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- 依赖注解-->
-        <dependency>
-            <groupId>com.monco.boot</groupId>
-            <artifactId>boot_annotation</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
 
 
     </dependencies>

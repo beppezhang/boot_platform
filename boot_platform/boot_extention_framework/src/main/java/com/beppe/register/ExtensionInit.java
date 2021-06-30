@@ -14,7 +14,6 @@ import java.util.Map;
 /**
  * 扩展点启动初始化
  */
-//@Component
 public class ExtensionInit implements ApplicationContextAware {
     private ApplicationContext applicationContext;
 
