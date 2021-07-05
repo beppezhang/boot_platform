@@ -30,6 +30,8 @@
         <module>boot_dubbo_provider</module>
         <module>boot_extention_framework</module>
         <module>boot_annotation</module>
+        <module>boot_push_service_center</module>
+        <module>boot_push_service_sdk</module>
     </modules>
 
 

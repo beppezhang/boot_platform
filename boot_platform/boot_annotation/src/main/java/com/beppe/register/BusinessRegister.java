@@ -25,6 +25,7 @@ public class BusinessRegister implements ApplicationContextAware {
     public void register() {
         // 获取所有的@Register 注解
         Map<String, Object> registerBeans = applicationContext.getBeansWithAnnotation(Register.class);
+        System.out.println("key:"+registerBeans.keySet());
         registerBeans.values().forEach(register -> doRegister((StrategyProcessor) register));
     }
 

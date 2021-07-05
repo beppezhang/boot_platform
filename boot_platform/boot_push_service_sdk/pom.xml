@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>boot_test</artifactId>
+    <artifactId>boot_push_service_sdk</artifactId>
 
-    <description>用于测试代码使用</description>
+    <description>推单服务sdk</description>
 
     <dependencies>
         <!-- spring boot -->
@@ -23,11 +23,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+
         <!-- lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -40,11 +36,7 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.3</version>
         </dependency>
-        <!-- jackson -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-        </dependency>
+
         <!-- commons集成-->
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -52,33 +44,6 @@
             <version>3.4</version>
         </dependency>
 
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- 依赖注解-->
-        <dependency>
-            <groupId>com.monco.boot</groupId>
-            <artifactId>boot_annotation</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-
-        <!-- guava 依赖-->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>30.0-jre</version>
-        </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.4.0</version>
-            <scope>compile</scope>
-        </dependency>
 
     </dependencies>
 </project>
