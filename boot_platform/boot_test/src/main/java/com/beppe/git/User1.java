@@ -12,9 +12,10 @@ public class User1 {
 
     private String cla;
 
-    private String job;
 
     private String home;
+
+    private String tall;
 
     public void setId(int id) {
         this.id = id;
@@ -36,13 +37,6 @@ public class User1 {
         this.cla = cla;
     }
 
-    public String getJob() {
-        return job;
-    }
-
-    public void setJob(String job) {
-        this.job = job;
-    }
 
     public String getHome() {
         return home;
@@ -50,5 +44,13 @@ public class User1 {
 
     public void setHome(String home) {
         this.home = home;
+    }
+
+    public String getTall() {
+        return tall;
+    }
+
+    public void setTall(String tall) {
+        this.tall = tall;
     }
 }
