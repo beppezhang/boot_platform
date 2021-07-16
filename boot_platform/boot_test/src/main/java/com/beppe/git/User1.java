@@ -8,6 +8,11 @@ public class User1 {
 
     private String tall;
 
+    // master 相对于dev fetch的时候提交了一次
+    private String location;
+
+    private int room;
+
     public int getId() {
         return id;
     }
@@ -30,5 +35,21 @@ public class User1 {
 
     public void setTall(String tall) {
         this.tall = tall;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public int getRoom() {
+        return room;
+    }
+
+    public void setRoom(int room) {
+        this.room = room;
     }
 }
