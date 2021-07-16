@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_agiso/boot_agiso.iml" filepath="$PROJECT_DIR$/boot_platform/boot_agiso/boot_agiso.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_aliyun/boot_aliyun.iml" filepath="$PROJECT_DIR$/boot_platform/boot_aliyun/boot_aliyun.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_annotation/boot_annotation.iml" filepath="$PROJECT_DIR$/boot_platform/boot_annotation/boot_annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_dubbo_api/boot_dubbo_api.iml" filepath="$PROJECT_DIR$/boot_platform/boot_dubbo_api/boot_dubbo_api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_dubbo_consumer/boot_dubbo_consumer.iml" filepath="$PROJECT_DIR$/boot_platform/boot_dubbo_consumer/boot_dubbo_consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_dubbo_provider/boot_dubbo_provider.iml" filepath="$PROJECT_DIR$/boot_platform/boot_dubbo_provider/boot_dubbo_provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_easypoi/boot_easypoi.iml" filepath="$PROJECT_DIR$/boot_platform/boot_easypoi/boot_easypoi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_extention_framework/boot_extention_framework.iml" filepath="$PROJECT_DIR$/boot_platform/boot_extention_framework/boot_extention_framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_kafka/boot_kafka.iml" filepath="$PROJECT_DIR$/boot_platform/boot_kafka/boot_kafka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_mybatis/boot_mybatis.iml" filepath="$PROJECT_DIR$/boot_platform/boot_mybatis/boot_mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_netty/boot_netty.iml" filepath="$PROJECT_DIR$/boot_platform/boot_netty/boot_netty.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_order/boot_order.iml" filepath="$PROJECT_DIR$/boot_platform/boot_order/boot_order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_pageoffice/boot_pageoffice.iml" filepath="$PROJECT_DIR$/boot_platform/boot_pageoffice/boot_pageoffice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_push_service_center/boot_push_service_center.iml" filepath="$PROJECT_DIR$/boot_platform/boot_push_service_center/boot_push_service_center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_push_service_sdk/boot_push_service_sdk.iml" filepath="$PROJECT_DIR$/boot_platform/boot_push_service_sdk/boot_push_service_sdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_rabbitmq/boot_rabbitmq.iml" filepath="$PROJECT_DIR$/boot_platform/boot_rabbitmq/boot_rabbitmq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_redis/boot_redis.iml" filepath="$PROJECT_DIR$/boot_platform/boot_redis/boot_redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_retrofit/boot_retrofit.iml" filepath="$PROJECT_DIR$/boot_platform/boot_retrofit/boot_retrofit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_security/boot_security.iml" filepath="$PROJECT_DIR$/boot_platform/boot_security/boot_security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_state_machine/boot_state_machine.iml" filepath="$PROJECT_DIR$/boot_platform/boot_state_machine/boot_state_machine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_test/boot_test.iml" filepath="$PROJECT_DIR$/boot_platform/boot_test/boot_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_xxl_job/boot_xxl_job.iml" filepath="$PROJECT_DIR$/boot_platform/boot_xxl_job/boot_xxl_job.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_zookeeper/boot_zookeeper.iml" filepath="$PROJECT_DIR$/boot_platform/boot_zookeeper/boot_zookeeper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/platform.iml" filepath="$PROJECT_DIR$/boot_platform/platform.iml" />
+    </modules>
+  </component>
+</project>

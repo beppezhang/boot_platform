@@ -3,6 +3,60 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="boot_agiso" />
+        <module name="boot_aliyun" />
+        <module name="boot_annotation" />
+        <module name="boot_dubbo_api" />
+        <module name="boot_dubbo_consumer" />
+        <module name="boot_dubbo_provider" />
+        <module name="boot_easypoi" />
+        <module name="boot_extention_framework" />
+        <module name="boot_kafka" />
+        <module name="boot_mybatis" />
+        <module name="boot_netty" />
+        <module name="boot_order" />
+        <module name="boot_pageoffice" />
+        <module name="boot_push_service_center" />
+        <module name="boot_push_service_sdk" />
+        <module name="boot_rabbitmq" />
+        <module name="boot_redis" />
+        <module name="boot_retrofit" />
+        <module name="boot_security" />
+        <module name="boot_state_machine" />
+        <module name="boot_test" />
+        <module name="boot_xxl_job" />
+        <module name="boot_zookeeper" />
+      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="boot_agiso" target="1.8" />
+      <module name="boot_aliyun" target="1.8" />
+      <module name="boot_annotation" target="1.8" />
+      <module name="boot_dubbo_api" target="1.8" />
+      <module name="boot_dubbo_consumer" target="1.8" />
+      <module name="boot_dubbo_provider" target="1.8" />
+      <module name="boot_easypoi" target="1.8" />
+      <module name="boot_extention_framework" target="1.8" />
+      <module name="boot_kafka" target="1.8" />
+      <module name="boot_mybatis" target="1.8" />
+      <module name="boot_netty" target="1.8" />
+      <module name="boot_order" target="8" />
+      <module name="boot_pageoffice" target="1.8" />
+      <module name="boot_push_service_center" target="1.8" />
+      <module name="boot_push_service_sdk" target="1.8" />
+      <module name="boot_rabbitmq" target="1.8" />
+      <module name="boot_redis" target="1.8" />
+      <module name="boot_retrofit" target="1.8" />
+      <module name="boot_security" target="1.8" />
+      <module name="boot_state_machine" target="8" />
+      <module name="boot_test" target="1.8" />
+      <module name="boot_xxl_job" target="1.8" />
+      <module name="boot_zookeeper" target="1.8" />
+      <module name="platform" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
