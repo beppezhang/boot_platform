@@ -11,5 +11,13 @@ public class UserDTO {
 
     private String name;
 
+    public void doProcess(){
+        System.out.println("doing the process");
+    }
+
+    public void execute(){
+        System.out.println("doing the execute");
+    }
+
 
 }
