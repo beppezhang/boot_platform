@@ -4,19 +4,9 @@ public class User1 {
 
     private int id;
 
-    private String cla;
-
     private String home;
 
     private String tall;
-
-    private String addr;
-
-    private String addr;
-
-    private int age;
-
-    private String job;
 
     public int getId() {
         return id;
@@ -25,16 +15,6 @@ public class User1 {
     public void setId(int id) {
         this.id = id;
     }
-
-
-    public String getCla() {
-        return cla;
-    }
-
-    public void setCla(String cla) {
-        this.cla = cla;
-    }
-
 
     public String getHome() {
         return home;
@@ -50,37 +30,5 @@ public class User1 {
 
     public void setTall(String tall) {
         this.tall = tall;
-    }
-
-    public String getAddr() {
-        return addr;
-    }
-
-    public void setAddr(String addr) {
-        this.addr = addr;
-    }
-
-    public String getAddr() {
-        return addr;
-    }
-
-    public void setAddr(String addr) {
-        this.addr = addr;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getJob() {
-        return job;
-    }
-
-    public void setJob(String job) {
-        this.job = job;
     }
 }
