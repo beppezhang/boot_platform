@@ -32,6 +32,7 @@
         <module>boot_annotation</module>
         <module>boot_push_service_center</module>
         <module>boot_push_service_sdk</module>
+        <module>boot_command</module>
     </modules>
 
 
