@@ -17,7 +17,7 @@ public class CircleTest {
         Date date1 = DateUtils.getDate("2021-07-19 14:00:00", DateUtils.DEFAULT_TIME_FORMAT_STRING);
         Date date2 = DateUtils.getDate("2021-07-20 14:00:00", DateUtils.DEFAULT_TIME_FORMAT_STRING);
         Date date3 = DateUtils.getDate("2021-07-21 14:00:00", DateUtils.DEFAULT_TIME_FORMAT_STRING);
-        Date slot = DateUtils.getDate("2021-07-22 12:00:00", DateUtils.DEFAULT_TIME_FORMAT_STRING);
+        Date slot = DateUtils.getDate("2021-07-21 12:00:00", DateUtils.DEFAULT_TIME_FORMAT_STRING);
         dates.add(date1);
         dates.add(date2);
         dates.add(date3);

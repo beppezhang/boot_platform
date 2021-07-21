@@ -8,6 +8,8 @@ public class DateUtils {
 
     public static final String DEFAULT_TIME_FORMAT_STRING = "yyyy-MM-dd HH:mm:ss";
 
+    public static final String DEFAULT_TIME_FORMAT_STRING_MIN = "yyyy-MM-ddHH:mm";
+
     public static Date getDate(String sDate, String dateFormat){
         SimpleDateFormat fmt = new SimpleDateFormat(dateFormat);
         ParsePosition pos = new ParsePosition(0);
