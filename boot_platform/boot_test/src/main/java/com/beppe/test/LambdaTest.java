@@ -106,4 +106,15 @@ public class LambdaTest {
         System.out.println("collet:" + collect);
     }
 
+    @Test
+    public void test7(){
+        List<UserDTO> list = new ArrayList<>();
+        list.add(UserDTO.builder().id(1).build());
+        list.add(UserDTO.builder().id(2).build());
+        list.add(UserDTO.builder().id(3).build());
+        list.forEach(userDTO -> userDTO.setName("beppe"));
+
+        list.forEach(userDTO -> System.out.println(userDTO.getName()));
+    }
+
 }
