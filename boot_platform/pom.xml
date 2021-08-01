@@ -33,6 +33,7 @@
         <module>boot_push_service_center</module>
         <module>boot_push_service_sdk</module>
         <module>boot_command</module>
+        <module>boot_handwrite_dubbo</module>
     </modules>
 
 
