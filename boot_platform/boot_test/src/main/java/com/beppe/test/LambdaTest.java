@@ -3,6 +3,7 @@ package com.beppe.test;
 import com.beppe.common.EventConstant;
 import com.beppe.common.OrderStatus;
 import com.beppe.entity.Strategy;
+import com.beppe.entity.User;
 import com.beppe.entity.UserDTO;
 import com.beppe.processor.CentralControl;
 import org.joda.time.LocalDateTime;
@@ -107,7 +108,7 @@ public class LambdaTest {
     }
 
     @Test
-    public void test7(){
+    public void test7() {
         List<UserDTO> list = new ArrayList<>();
         list.add(UserDTO.builder().id(1).build());
         list.add(UserDTO.builder().id(2).build());
@@ -115,6 +116,16 @@ public class LambdaTest {
         list.forEach(userDTO -> userDTO.setName("beppe"));
 
         list.forEach(userDTO -> System.out.println(userDTO.getName()));
+    }
+
+    @Test
+    public void test8() {
+        List<User> list = new ArrayList<>();
+        list.add(new User(1,"beppe1"));
+        list.add(new User(2,"beppe2"));
+        UserDTO build = UserDTO.builder().users(list).build();
+        build.getUsers().forEach(user -> user.getName().equals("beppe1"));
+
     }
 
 }
