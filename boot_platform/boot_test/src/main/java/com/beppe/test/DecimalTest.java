@@ -13,4 +13,10 @@ public class DecimalTest {
         BigDecimal result = first.multiply(second).setScale(2, 4);
         System.out.println("result:"+result);
     }
+
+    @Test
+    public void test2(){
+        BigDecimal zero = new BigDecimal(0);
+
+    }
 }
