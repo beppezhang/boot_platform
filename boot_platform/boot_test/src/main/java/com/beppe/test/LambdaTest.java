@@ -121,11 +121,47 @@ public class LambdaTest {
     @Test
     public void test8() {
         List<User> list = new ArrayList<>();
-        list.add(new User(1,"beppe1"));
-        list.add(new User(2,"beppe2"));
+        list.add(new User(1, "beppe1"));
+        list.add(new User(2, "beppe2"));
         UserDTO build = UserDTO.builder().users(list).build();
         build.getUsers().forEach(user -> user.getName().equals("beppe1"));
 
     }
+
+    @Test
+    public void test9() {
+        List<User> list = new ArrayList<>();
+        list.add(new User(1, "beppe1", true));
+        list.add(new User(2, "beppe2", true));
+        list.add(new User(3, "beppe3", false));
+//        int i=4;
+//        List<User> collect = list.stream().filter(user -> user.getApplied()).map(user -> {
+//            user.setId(6);
+//            return user;
+//        }).collect(Collectors.toList());
+//        System.out.println(collect);
+        list.stream().filter(user -> !user.getName().equals("beppe1")).
+                forEach(user -> System.out.println("name:" + user.getName()));
+
+
+    }
+
+    @Test
+    public void test10() {
+        Map<String, UserDTO> map = new HashMap<>();
+        map.put("user", UserDTO.builder().id(11).name("BEPPE").build());
+        UserDTO user = map.get("user");
+        user.setName("beppe1");
+        System.out.println(user);
+
+
+    }
+
+    @Test
+    public void test11(){
+        int i=10/0;
+        System.out.println("aaa");
+    }
+
 
 }

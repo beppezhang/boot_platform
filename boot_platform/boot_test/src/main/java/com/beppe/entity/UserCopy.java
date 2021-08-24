@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class User {
+public class UserCopy {
 
     private int id;
 
@@ -13,15 +13,15 @@ public class User {
 
     private Boolean isApplied;
 
-    public User() {
+    public UserCopy() {
     }
 
-    public User(int id, String name) {
+    public UserCopy(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public User(int id, String name, Boolean isApplied) {
+    public UserCopy(int id, String name, Boolean isApplied) {
         this.id = id;
         this.name = name;
         this.isApplied = isApplied;
