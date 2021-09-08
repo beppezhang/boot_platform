@@ -13,6 +13,8 @@ public class User {
 
     private Boolean isApplied;
 
+    private List<Order1> orders;
+
     public User() {
     }
 
@@ -62,5 +64,13 @@ public class User {
 //        list.add("beppe3");
 //        list.add("beppe4");
         return list;
+    }
+
+    public List<Order1> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order1> orders) {
+        this.orders = orders;
     }
 }

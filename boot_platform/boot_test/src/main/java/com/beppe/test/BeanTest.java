@@ -1,8 +1,11 @@
 package com.beppe.test;
 
+import com.beppe.entity.Order1;
+import com.beppe.entity.Order2;
 import com.beppe.entity.User;
 import com.beppe.entity.UserCopy;
 import com.google.common.collect.Lists;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.cglib.beans.BeanCopier;
 import org.springframework.cglib.core.Converter;
@@ -15,13 +18,27 @@ public class BeanTest {
 
     @Test
     public void test1(){
-        List<User> list = new ArrayList<>();
-        list.add(new User(1, "beppe1", true));
-        list.add(new User(2, "beppe2", true));
-        list.add(new User(3, "beppe3", true));
-        List<UserCopy> list1 = new ArrayList<>();
+        List<User> list = null;
+//        User beppe1 = new User(1, "beppe1", true);
+//        User beppe2 = new User(2, "beppe2", true);
+//        User beppe3 = new User(3, "beppe3", true);
+////        beppe1.setOrders(Lists.newArrayList(new Order1(1l,"qw")));
+////        beppe2.setOrders(Lists.newArrayList(new Order1(2l,"tt")));
+////        beppe3.setOrders(Lists.newArrayList(new Order1(3l,"uu")));
+//        list.add(beppe1);
+//        list.add(beppe2);
+//        list.add(beppe3);
         List<UserCopy> userCopies = convertList(BeanCopier.create(User.class, UserCopy.class, false), list, UserCopy.class);
-
+//        if(CollectionUtils.isNotEmpty(userCopies)){
+            userCopies.forEach(userCopy -> {
+                List<Order2> order2s = convertList(BeanCopier.create(Order1.class, Order2.class, false), userCopy.getOrders(), Order2.class);
+                userCopy.setOrders(order2s);
+            });
+//        }
+        userCopies.forEach(userCopy -> {
+            List<Order2> orders = userCopy.getOrders();
+            System.out.println("coede:"+orders.get(0).getCode() );
+        });
     }
 
     public static <T, S> List<T> convertList(BeanCopier copier, List<S> source, Class<T> cls) {
@@ -47,6 +64,11 @@ public class BeanTest {
         } catch (Exception var4) {
             return null;
         }
+    }
+
+    @Test
+    public void test2(){
+
     }
 
 

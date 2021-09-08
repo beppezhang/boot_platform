@@ -6,12 +6,16 @@ import com.beppe.entity.Strategy;
 import com.beppe.entity.User;
 import com.beppe.entity.UserDTO;
 import com.beppe.processor.CentralControl;
+import com.google.common.collect.Lists;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.joda.time.LocalDateTime;
 import org.joda.time.LocalTime;
 import org.testng.annotations.Test;
 
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class LambdaTest {
 
@@ -47,8 +51,8 @@ public class LambdaTest {
         list.add(UserDTO.builder().name("beppe1").build());
         list.add(UserDTO.builder().name("beppe2").build());
         list.add(UserDTO.builder().name("beppe3").build());
-        boolean flag = list.stream().anyMatch(p -> p.getName().equals("beppe2"));
-        System.out.println("flag===" + flag);
+//        boolean flag = list.stream().anyMatch(p -> p.getName().equals("beppe2"));
+//        System.out.println("flag===" + flag);
     }
 
     @Test
@@ -130,19 +134,23 @@ public class LambdaTest {
 
     @Test
     public void test9() {
+        int i=3;
         List<User> list = new ArrayList<>();
-        list.add(new User(1, "beppe1", true));
-        list.add(new User(2, "beppe2", true));
-        list.add(new User(3, "beppe3", false));
-//        int i=4;
-//        List<User> collect = list.stream().filter(user -> user.getApplied()).map(user -> {
-//            user.setId(6);
-//            return user;
-//        }).collect(Collectors.toList());
-//        System.out.println(collect);
-        list.stream().filter(user -> !user.getName().equals("beppe1")).
-                forEach(user -> System.out.println("name:" + user.getName()));
-
+//        list.add(new User(1, "beppe1", true));
+//        list.add(new User(2, "beppe2", true));
+//        list.add(new User(3, "beppe3", false));
+        StringBuilder sb = new StringBuilder();
+//        list.forEach(user -> {
+//            sb.append(user.getName());
+//            if(sb.length()!=list.size()){
+//                sb.append(",");
+//            }
+//
+//        });
+//        int i1 = sb.toString().lastIndexOf(",");
+        String substring = sb.toString().substring(0, sb.toString().length() - 1);
+        System.out.println("substring"+substring);
+//        System.out.println("cccc"+collect);
 
     }
 
@@ -159,8 +167,8 @@ public class LambdaTest {
 
     @Test
     public void test11(){
-        int i=10/0;
-        System.out.println("aaa");
+
+
     }
 
 

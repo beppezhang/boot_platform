@@ -13,6 +13,8 @@ public class UserCopy {
 
     private Boolean isApplied;
 
+    private List<Order2> orders;
+
     public UserCopy() {
     }
 
@@ -62,5 +64,13 @@ public class UserCopy {
 //        list.add("beppe3");
 //        list.add("beppe4");
         return list;
+    }
+
+    public List<Order2> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order2> orders) {
+        this.orders = orders;
     }
 }
