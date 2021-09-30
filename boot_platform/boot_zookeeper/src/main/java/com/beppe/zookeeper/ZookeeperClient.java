@@ -33,7 +33,7 @@ public class ZookeeperClient {
     public static void main(String[] args) throws Exception {
 
         // 定义客户端连接的地址
-        String address = "192.168.196.131,192.168.196.132,192.168.196.133,192.168.196.134:2181";
+        String address = "localhost:2181";
 
         // 定义 CountDownLatch 用来阻塞线程等待 watch回调 一个 连接  connectionLatch  一个获取数据  dataLatch
         final CountDownLatch connectionLatch = new CountDownLatch(1);
