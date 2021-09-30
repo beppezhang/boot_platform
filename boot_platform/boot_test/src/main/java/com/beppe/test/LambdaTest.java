@@ -2,12 +2,16 @@ package com.beppe.test;
 
 import com.beppe.common.EventConstant;
 import com.beppe.common.OrderStatus;
+import com.beppe.entity.Order1;
+import com.beppe.entity.Order2;
 import com.beppe.entity.Strategy;
 import com.beppe.entity.User;
 import com.beppe.entity.UserDTO;
 import com.beppe.processor.CentralControl;
+import com.beppe.utils.CartUtil;
 import com.google.common.collect.Lists;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+import org.apache.commons.collections.CollectionUtils;
 import org.joda.time.LocalDateTime;
 import org.joda.time.LocalTime;
 import org.testng.annotations.Test;
@@ -16,6 +20,8 @@ import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.groupingBy;
 
 public class LambdaTest {
 
@@ -114,12 +120,20 @@ public class LambdaTest {
     @Test
     public void test7() {
         List<UserDTO> list = new ArrayList<>();
-        list.add(UserDTO.builder().id(1).build());
-        list.add(UserDTO.builder().id(2).build());
-        list.add(UserDTO.builder().id(3).build());
-        list.forEach(userDTO -> userDTO.setName("beppe"));
-
-        list.forEach(userDTO -> System.out.println(userDTO.getName()));
+        list.add(UserDTO.builder().id(1).name("beppe1").build());
+        list.add(UserDTO.builder().id(1).name("beppe2").build());
+        list.add(UserDTO.builder().id(3).name("beppe3").build());
+//        Map<Integer, List<User>> maps = list.stream().map(userDTO -> {
+//            User user = new User(userDTO.getId(), userDTO.getName());
+//            return user;
+//        }).collect(groupingBy(User::getId));
+//        List<User> collect = maps.values().stream().map(value -> {
+//            User user = value.get(0);
+//            Map map=new HashMap<Integer,String>();
+//            value.stream().flatMap(p->p.)
+//        }).collect(Collectors.toList());
+//        System.out.println("collect:"+collect);
+//        list.stream().flatMap()
     }
 
     @Test
@@ -134,7 +148,7 @@ public class LambdaTest {
 
     @Test
     public void test9() {
-        int i=3;
+        int i = 3;
         List<User> list = new ArrayList<>();
 //        list.add(new User(1, "beppe1", true));
 //        list.add(new User(2, "beppe2", true));
@@ -149,7 +163,7 @@ public class LambdaTest {
 //        });
 //        int i1 = sb.toString().lastIndexOf(",");
         String substring = sb.toString().substring(0, sb.toString().length() - 1);
-        System.out.println("substring"+substring);
+        System.out.println("substring" + substring);
 //        System.out.println("cccc"+collect);
 
     }
@@ -166,9 +180,46 @@ public class LambdaTest {
     }
 
     @Test
-    public void test11(){
+    public void test11() {
+        User user = new User(11, "beppe");
+        List<Order2> or2 = CartUtil.buildMultiCartInfo(user, order1 -> buildOrder2(user, order1));
 
+    }
 
+    private Order2 buildOrder2(User user, Order1 order1) {
+        System.out.println("doing order2");
+        Order2 order2 = new Order2();
+        order2.setCode(user.getName());
+        return order2;
+    }
+
+    @Test
+    public void test12() {
+        Order1 o1=new Order1(1l,"aa");
+        Order1 o2=new Order1(2l,"bb");
+        Order1 o3=new Order1(3l,"cc");
+        Order1 o4=new Order1(4l,"dd");
+        Order1 o5=new Order1(5l,"ee");
+        List<Order1> l1 = Lists.newArrayList(o1, o2);
+        List<Order1> l2 = Lists.newArrayList(o3, o4);
+        List<Order1> l3 = Lists.newArrayList(o5);
+        User user1 = new User(11, "beppe");
+        User user2 = new User(21, "beppe");
+        User user3 = new User(21, "beppe2");
+        User user4 = new User(21, "beppe4");
+        user1.setOrders(l1);
+        user2.setOrders(l2);
+        user3.setOrders(l3);
+        List<User> users = Lists.newArrayList(user1, user2, user3, user4);
+//        Map<Integer, List<String>> collect = users.stream().collect(Collectors.groupingBy(User::getId, Collectors.mapping(User::getName, Collectors.toList())));
+//        System.out.println("map====" + collect);
+//        List<String> collect = users.stream().filter(p-> CollectionUtils.isNotEmpty(p.getOrders())).flatMap(p -> p.getOrders().stream()).map(Order1::getCode).collect(Collectors.toList());
+//        System.out.println("collect:"+collect);
+//        boolean flag = users.stream().anyMatch(p -> p.getName().contains("beppe5"));
+//        System.out.println("包含标识："+flag);
+        users.stream().peek(p->{
+            System.out.println("peek:"+p.getName());
+        });
     }
 
 
