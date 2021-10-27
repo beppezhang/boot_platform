@@ -23,10 +23,17 @@ public class BaseZookeeper implements Watcher {
 
     @Override
     public void process(WatchedEvent event) {
+        // 绑定连接成功事件
         if (event.getState() == Event.KeeperState.SyncConnected) {
             System.out.println("Watch received event");
             countDownLatch.countDown();
         }
+        // 注册节点创建监听
+        System.out.println("type:"+event.getType().equals(1));
+        if(event.getType().equals(1)){
+            System.out.println("节点创建成功");
+        }
+
     }
 
 
@@ -43,7 +50,7 @@ public class BaseZookeeper implements Watcher {
     }
 
     /**
-     * 创建节点
+     * 创建节点   注册创建节点监听
      *
      * @param path
      * @param data
@@ -151,5 +158,8 @@ public class BaseZookeeper implements Watcher {
 
         List<String> children = zookeeper.getChildren("/");
         System.out.println(children);
+        // 创建节点
+        zookeeper.createNode("/house","shanghai");
+//        zookeeper.setData("/name","beppe2");
     }
 }

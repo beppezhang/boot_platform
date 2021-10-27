@@ -54,11 +54,13 @@ public class LambdaTest {
     @Test
     public void test2() {
         List<UserDTO> list = new ArrayList<>();
-        list.add(UserDTO.builder().name("beppe1").build());
-        list.add(UserDTO.builder().name("beppe2").build());
-        list.add(UserDTO.builder().name("beppe3").build());
+        list.add(UserDTO.builder().id(1).name("beppe1").build());
+        list.add(UserDTO.builder().id(2).name("beppe2").build());
+        list.add(UserDTO.builder().id(2).name("beppe3").build());
 //        boolean flag = list.stream().anyMatch(p -> p.getName().equals("beppe2"));
 //        System.out.println("flag===" + flag);
+        Map<Integer, String> collect = list.stream().collect(Collectors.toMap(UserDTO::getId, UserDTO::getName,(k1, k2)->k2));
+        System.out.println("collect:"+collect);
     }
 
     @Test

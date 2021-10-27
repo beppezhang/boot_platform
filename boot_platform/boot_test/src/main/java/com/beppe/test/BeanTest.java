@@ -4,6 +4,7 @@ import com.beppe.entity.Order1;
 import com.beppe.entity.Order2;
 import com.beppe.entity.User;
 import com.beppe.entity.UserCopy;
+import com.beppe.entity.UserDTO;
 import com.google.common.collect.Lists;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.BeanUtils;
@@ -68,6 +69,11 @@ public class BeanTest {
 
     @Test
     public void test2(){
+        User user = new User(1, "beppe", true);
+        UserDTO build = UserDTO.builder().user(user).build();
+        user.setName("aaaaaa");
+        String name = build.getUser().getName();
+        System.out.println("name:"+name);
 
     }
 

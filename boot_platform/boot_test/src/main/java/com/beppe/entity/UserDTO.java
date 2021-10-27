@@ -15,6 +15,8 @@ public class UserDTO {
 
     private List<User> users;
 
+    private User user;
+
     public void doProcess(){
         System.out.println("doing the process");
     }

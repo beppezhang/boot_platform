@@ -11,4 +11,10 @@ public class AATest {
         int i1 = i & 1024;
         System.out.println("il:"+i1);
     }
+//
+//
+    @Test
+    public void test2(){
+
+    }
 }
