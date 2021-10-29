@@ -4,12 +4,14 @@ import com.beppe.entity.User;
 import com.beppe.utils.DateUtils;
 import org.apache.commons.lang3.BooleanUtils;
 import org.joda.time.DateTime;
+import org.joda.time.LocalDateTime;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class DateTest {
 
@@ -67,5 +69,21 @@ public class DateTest {
         Boolean flag=null;
         boolean aTrue = BooleanUtils.isTrue(true);
         System.out.println("aTrue:"+aTrue);
+    }
+
+    @Test
+    public void test7(){
+        Date d=null;
+        DateTime dateTime = new DateTime(d);
+        System.out.println("dateTime:"+ Objects.isNull(d));
+    }
+
+    @Test
+    public void test8(){
+//        Long l=null;
+//        boolean aNull = Objects.isNull(l);
+//        System.out.println(aNull);
+        LocalDateTime parse = LocalDateTime.parse("2021-09-20 13:50");
+        System.out.println("parse:"+parse);
     }
 }

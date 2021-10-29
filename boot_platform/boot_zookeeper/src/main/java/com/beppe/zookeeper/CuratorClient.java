@@ -17,7 +17,7 @@ public class CuratorClient {
     public static void main(String[] args) throws Exception {
 
         // 定义客户端连接的地址
-        String address = "192.168.196.131,192.168.196.132,192.168.196.133,192.168.196.134:2181";
+        String address = "localhost:2181";
 
         CuratorFramework curatorFramework = CuratorFrameworkFactory.
                 builder().connectString(address).sessionTimeoutMs(4000).

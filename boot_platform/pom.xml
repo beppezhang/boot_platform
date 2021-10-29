@@ -34,6 +34,7 @@
         <module>boot_push_service_sdk</module>
         <module>boot_command</module>
         <module>boot_handwrite_dubbo</module>
+        <module>boot_leetcode</module>
     </modules>
 
 
