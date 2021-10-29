@@ -4,7 +4,14 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/boot_platform/pom.xml" />
+        <option value="$PROJECT_DIR$/boot_platform/boot_handwrite_dubbo/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/boot_platform/spring-cloud-acm-sample/pom.xml" />
+      </set>
+    </option>
   </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>

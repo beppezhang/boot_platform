@@ -5,13 +5,20 @@
     <file url="file://$PROJECT_DIR$/boot_platform/boot_agiso" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/boot_platform/boot_aliyun" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/boot_platform/boot_annotation" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/boot_platform/boot_command" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/boot_platform/boot_dubbo_api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/boot_platform/boot_dubbo_consumer" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/boot_platform/boot_dubbo_provider" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/boot_platform/boot_dubbo_spi" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/boot_platform/boot_easypoi" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/boot_platform/boot_extention_framework" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/boot_platform/boot_handwrite_dubbo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/boot_platform/boot_handwrite_dubbo/hd-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/boot_platform/boot_handwrite_dubbo/hd-consumer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/boot_platform/boot_handwrite_dubbo/hd-provider" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/boot_platform/boot_kafka" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/boot_platform/boot_mybatis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/boot_platform/boot_nacos" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/boot_platform/boot_netty" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/boot_platform/boot_order" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/boot_platform/boot_pageoffice" charset="UTF-8" />

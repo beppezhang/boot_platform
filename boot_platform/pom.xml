@@ -35,6 +35,8 @@
         <module>boot_command</module>
         <module>boot_handwrite_dubbo</module>
         <module>boot_leetcode</module>
+        <module>boot_dubbo_spi</module>
+        <module>boot_nacos</module>
     </modules>
 
 

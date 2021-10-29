@@ -10,13 +10,17 @@
         <module name="boot_agiso" />
         <module name="boot_aliyun" />
         <module name="boot_annotation" />
+        <module name="boot_command" />
         <module name="boot_dubbo_api" />
         <module name="boot_dubbo_consumer" />
         <module name="boot_dubbo_provider" />
+        <module name="boot_dubbo_spi" />
         <module name="boot_easypoi" />
         <module name="boot_extention_framework" />
+        <module name="boot_handwrite_dubbo" />
         <module name="boot_kafka" />
         <module name="boot_mybatis" />
+        <module name="boot_nacos" />
         <module name="boot_netty" />
         <module name="boot_order" />
         <module name="boot_pageoffice" />
@@ -30,19 +34,26 @@
         <module name="boot_test" />
         <module name="boot_xxl_job" />
         <module name="boot_zookeeper" />
+        <module name="hd-client" />
+        <module name="hd-consumer" />
+        <module name="hd-provider" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="boot_agiso" target="1.8" />
       <module name="boot_aliyun" target="1.8" />
       <module name="boot_annotation" target="1.8" />
+      <module name="boot_command" target="1.8" />
       <module name="boot_dubbo_api" target="1.8" />
       <module name="boot_dubbo_consumer" target="1.8" />
       <module name="boot_dubbo_provider" target="1.8" />
+      <module name="boot_dubbo_spi" target="1.8" />
       <module name="boot_easypoi" target="1.8" />
       <module name="boot_extention_framework" target="1.8" />
+      <module name="boot_handwrite_dubbo" target="1.8" />
       <module name="boot_kafka" target="1.8" />
       <module name="boot_mybatis" target="1.8" />
+      <module name="boot_nacos" target="1.5" />
       <module name="boot_netty" target="1.8" />
       <module name="boot_order" target="8" />
       <module name="boot_pageoffice" target="1.8" />
@@ -56,7 +67,11 @@
       <module name="boot_test" target="1.8" />
       <module name="boot_xxl_job" target="1.8" />
       <module name="boot_zookeeper" target="1.8" />
+      <module name="hd-client" target="1.8" />
+      <module name="hd-consumer" target="1.8" />
+      <module name="hd-provider" target="1.8" />
       <module name="platform" target="1.8" />
+      <module name="spring-cloud-acm-sample" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
