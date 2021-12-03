@@ -140,11 +140,7 @@ public class LambdaTest {
 
     @Test
     public void test8() {
-        List<User> list = new ArrayList<>();
-        list.add(new User(1, "beppe1"));
-        list.add(new User(2, "beppe2"));
-        UserDTO build = UserDTO.builder().users(list).build();
-        build.getUsers().forEach(user -> user.getName().equals("beppe1"));
+
 
     }
 

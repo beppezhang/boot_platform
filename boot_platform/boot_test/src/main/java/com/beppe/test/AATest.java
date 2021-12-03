@@ -1,11 +1,6 @@
 package com.beppe.test;
 
-
-import com.beppe.entity.Order2;
-import com.beppe.utils.CartUtil;
 import org.testng.annotations.Test;
-
-import java.util.List;
 
 public class AATest {
 
@@ -17,14 +12,12 @@ public class AATest {
         System.out.println("il:"+i1);
     }
 //
-
 //
     @Test
     public void test2(){
-        List<Order2> list = CartUtil.buildMultiCartInfo(null, null);
-
+        // 与运算I
+        Integer i=null;
+        Integer i1 = i==null ? null:i&2;
+        System.out.println("flag:"+i1);
     }
-
-
-
 }
