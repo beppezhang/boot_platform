@@ -14,6 +14,7 @@
       <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_extention_framework/boot_extention_framework.iml" filepath="$PROJECT_DIR$/boot_platform/boot_extention_framework/boot_extention_framework.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_handwrite_dubbo/boot_handwrite_dubbo.iml" filepath="$PROJECT_DIR$/boot_platform/boot_handwrite_dubbo/boot_handwrite_dubbo.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_kafka/boot_kafka.iml" filepath="$PROJECT_DIR$/boot_platform/boot_kafka/boot_kafka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_leetcode/boot_leetcode.iml" filepath="$PROJECT_DIR$/boot_platform/boot_leetcode/boot_leetcode.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_mybatis/boot_mybatis.iml" filepath="$PROJECT_DIR$/boot_platform/boot_mybatis/boot_mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_nacos/boot_nacos.iml" filepath="$PROJECT_DIR$/boot_platform/boot_nacos/boot_nacos.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_platform/boot_netty/boot_netty.iml" filepath="$PROJECT_DIR$/boot_platform/boot_netty/boot_netty.iml" />

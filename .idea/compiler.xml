@@ -19,6 +19,7 @@
         <module name="boot_extention_framework" />
         <module name="boot_handwrite_dubbo" />
         <module name="boot_kafka" />
+        <module name="boot_leetcode" />
         <module name="boot_mybatis" />
         <module name="boot_nacos" />
         <module name="boot_netty" />
@@ -52,6 +53,7 @@
       <module name="boot_extention_framework" target="1.8" />
       <module name="boot_handwrite_dubbo" target="1.8" />
       <module name="boot_kafka" target="1.8" />
+      <module name="boot_leetcode" target="1.8" />
       <module name="boot_mybatis" target="1.8" />
       <module name="boot_nacos" target="1.5" />
       <module name="boot_netty" target="1.8" />

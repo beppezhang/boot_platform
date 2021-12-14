@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/boot_platform/pom.xml" />
         <option value="$PROJECT_DIR$/boot_platform/boot_handwrite_dubbo/pom.xml" />
+        <option value="$PROJECT_DIR$/boot_platform/boot_leetcode/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
