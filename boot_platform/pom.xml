@@ -36,6 +36,7 @@
         <module>boot_handwrite_dubbo</module>
         <module>boot_leetcode</module>
         <module>boot_scaf</module>
+        <module>boot_flow</module>
     </modules>
 
 
