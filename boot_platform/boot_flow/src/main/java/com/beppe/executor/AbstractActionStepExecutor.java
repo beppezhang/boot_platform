@@ -20,7 +20,7 @@ public class AbstractActionStepExecutor {
         // 获取到执行步骤扩展点
         DecideStepExt decideStepExt = extensionCenter.getExtension(DecideStepExt.class, type, point, code);
         // 获取具体的流程
-        decideStepExt.decideSteps(ActionStepContext );
+//        decideStepExt.decideSteps(ActionStepContext );
     }
 
 

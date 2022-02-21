@@ -22,7 +22,7 @@ public class ExtensionConfigration {
     // 注册类
     @Bean
     public ExtensionRegister extensionRegister(){
-        return new ExtensionRegister();
+        return new ExtensionRegister(extensionCenter());
     }
 
     @Bean
