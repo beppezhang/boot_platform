@@ -1,4 +1,7 @@
 package com.beppe.model;
 
-public class DomainModel {
+/**
+ * 领域模型
+ */
+public interface DomainModel {
 }
