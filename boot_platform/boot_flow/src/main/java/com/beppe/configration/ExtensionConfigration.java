@@ -21,8 +21,8 @@ public class ExtensionConfigration {
 
     // 注册类
     @Bean
-    public ExtensionRegister extensionRegister(ExtensionCenter extensionCenter){
-        return new ExtensionRegister(extensionCenter);
+    public ExtensionRegister extensionRegister(){
+        return new ExtensionRegister(extensionCenter());
     }
 
     @Bean

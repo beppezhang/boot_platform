@@ -1,16 +1,25 @@
 package com.beppe.test;
 
-import com.beppe.entity.Order1;
-import com.beppe.entity.Order2;
+import com.alibaba.fastjson.JSONObject;
+import com.beppe.entity.Order;
+import com.beppe.entity.OrderDTO;
+import com.beppe.entity.OrderHeader;
+import com.beppe.entity.OrderHeaderDTO;
+import org.joda.time.LocalTime;
+import org.springframework.beans.BeanUtils;
 import org.testng.annotations.Test;
 
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.concurrent.locks.ReentrantLock;
+import java.lang.reflect.InvocationTargetException;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 public class AATest {
 
-    ThreadPoolExecutor pool=new ThreadPoolExecutor(5,10,10, TimeUnit.SECONDS,new LinkedBlockingDeque<>());
+    ThreadPoolExecutor executor=new ThreadPoolExecutor(5,10,100, TimeUnit.SECONDS,new LinkedBlockingDeque<>());
+
     @Test
     public void test1(){
         System.out.println(2|4);
@@ -28,104 +37,84 @@ public class AATest {
         System.out.println("flag:"+i1);
     }
 
+
     @Test
     public void test3(){
-        Order1 aa1 = new Order1(1l, "aa");
-        Order1 aa2 = new Order1(2l, "bb");
-        Order1 aa3 = new Order1(3l, "cc");
-        List<Order1> order1s = new ArrayList<>();
-        order1s.add(aa1);
-        order1s.add(aa2);
-        order1s.add(aa3);
-        Order2 order2 = new Order2();
-        order2.setList(order1s);
-        List<FutureTask<String>> result =new ArrayList<>();
-        long start = System.currentTimeMillis();
-        List<Order1> os = new ArrayList<>();
-        for (Order1 o:order2.getList()){
-            FutureTask<String> future1 = new FutureTask<>(new Runnable() {
-
-                @Override
-                public void run() {
-//                    try {
-//                        Thread.sleep(100);
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-                    if(o.getId()==2l){
-                        return;
-                    }
-                    o.setCode("jjjj");
-                    os.add(o);
-                    System.out.println("打印：" + o.getCode());
-                }
-            }, "finished");
-            result.add(future1);
-            pool.submit(future1);
-
-        }
-
-        for (FutureTask<String> res:result){
-            try {
-                String s = res.get();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            }
-
-        }
-        for (Order1 i:os) {
-            System.out.println("iiiii:"+i.getCode());
-        }
-
-        // 拿到结果
-        System.out.println("执行时间："+(System.currentTimeMillis()-start));
+        String user=null;
+        String str="beppe";
+        String name=null;
+        System.out.println(user+":"+str+":"+name);
     }
 
     @Test
     public void test4(){
-        // 数组
-        List list=new ArrayList<>();
-        // 链表
-        List<Object> list2 = new LinkedList<>();
-        list2.add(111);
-        Stack<Object> stack = new Stack<>();
-        stack.add(111);
 
-        Set<Object> set1 = new HashSet<>();
-        set1.add(111);
-        LinkedHashSet<Object> set2 = new LinkedHashSet<>();
-        set2.add(22);
-        TreeSet<Object> set3 = new TreeSet<>();
-        set3.add(333);
-
-        // =========== 线程安全
-        Vector<Object> vector = new Vector<>();
-        vector.add("aaa");
-        vector.get(1);
-
-        List<Object> list3 = new CopyOnWriteArrayList<>();
-        list3.add("aa");
-        list3.get(0);
-
-        List<Object> list4 = Collections.synchronizedList(new ArrayList<>());
-        list4.add("nnn");
-
-        LinkedHashMap<String, String> map = new LinkedHashMap<>();
-        map.put("aaa","beppe1");
-        Map<Object, Object> map1 = new HashMap<>();
-        map1.put("bbb","beppe2");
-
-        Map map3=new ConcurrentHashMap<>();
-        map3.put("name","beppe1");
-        map3.get("name");
+        LocalTime localDateTime = LocalTime.now().withHourOfDay(14).withMinuteOfHour(30);
+        LocalTime localDateTime1 = LocalTime.now().withHourOfDay(14).withMinuteOfHour(30);
+        boolean after = localDateTime.isAfter(localDateTime1);
+        System.out.println("after:"+after);
     }
 
     @Test
     public void test5(){
-        // jdk 锁
-        ReentrantLock reentrantLock = new ReentrantLock();
-        reentrantLock.lock();
+//        List<String> lists = null;
+//        lists.forEach(str-> System.out.println("str:"+str));
+        LocalTime start = LocalTime.now().withHourOfDay(23).withMinuteOfHour(30);
+        LocalTime nextTime = start.plusMinutes(60);
+        System.out.println("start:"+start);
+
     }
+
+    @Test
+    public void test7(){
+        int i=9;
+        try {
+            i=4;
+            int b=0/5;
+        }catch (Exception e){
+
+        }
+        System.out.println("i 的值："+i);
+
+    }
+
+
+    @Test
+    public void test8() throws ClassNotFoundException {
+        String s1="hello";
+        String s3="hel"+"lo";
+
+        System.out.println(s1==s3);
+
+        ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
+        systemClassLoader.loadClass("com.beppe.test.Alothg");
+    }
+
+
+
+    @Test
+    public void test10() {
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("执行任务");
+            }
+        });
+    }
+
+    @Test
+    public void test11() throws InvocationTargetException, IllegalAccessException {
+        OrderHeader orderHeader = new OrderHeader();
+        orderHeader.setId(123);
+        orderHeader.setCode("aaa");
+        orderHeader.setAmt(new BigDecimal(2.00));
+        orderHeader.setCreateTime(new Date());
+        orderHeader.setStatus(null);
+        Order order = new Order();
+        order.setHeader(orderHeader);
+        OrderHeaderDTO orderHeaderDTO = new OrderHeaderDTO();
+        OrderDTO orderDTO = new OrderDTO();
+        BeanUtils.copyProperties(order,orderDTO);
+        System.out.println("orderDTO"+ JSONObject.toJSONString(orderDTO));
+      }
 }
