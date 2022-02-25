@@ -12,6 +12,8 @@ import org.testng.annotations.Test;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -117,4 +119,15 @@ public class AATest {
         BeanUtils.copyProperties(order,orderDTO);
         System.out.println("orderDTO"+ JSONObject.toJSONString(orderDTO));
       }
+
+
+     @Test
+    public void test12(){
+         Queue<Integer> queue = new LinkedList<>();
+         queue.offer(1);
+         queue.offer(2);
+         queue.offer(3);
+         System.out.println("出队列的数据:"+queue.poll());
+         System.out.println("queue"+queue);
+     }
 }
