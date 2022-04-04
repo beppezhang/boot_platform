@@ -11,7 +11,7 @@ public class Demo2 {
         TreeNode left = new TreeNode(2);
         TreeNode right = new TreeNode(3);
         TreeNode tree = new TreeNode(1,left,right);
-        iteratorMid(tree);
+        iteratorBack(tree);
     }
 
     /**
@@ -69,18 +69,19 @@ public class Demo2 {
      */
     private void iteratorBack(TreeNode root){
         List<Integer> res = new ArrayList<>();
-        Deque<TreeNode> stack = new LinkedList();
-        while (root!=null || stack.size()>0){
-            // 将左节点遍历到底
-            while (root!=null){
-                //加入到结果集中
-                // 入栈
-                stack.push(root);
-                root=root.left;
-            }
-            // 出栈
-            stack.pop();
+        Stack<TreeNode> stack = new Stack();
+        while (root!=null || stack.size()>0) {
+           if(root!=null){
+               res.add(0,root.val);
+               stack.push(root);
+               root=root.right;
+           } else {
+               TreeNode pop = stack.pop();
+               root=pop.left;
+           }
         }
+        System.out.println("遍历后数据："+res);
+
     }
 
 
@@ -95,5 +96,48 @@ public class Demo2 {
          this.left = left;
          this.right = right;
      }
- }
+    }
+
+    // 最小栈的实现
+    public class MyMinStack{
+
+
+
+        // 数组维护栈的数据
+        public int[] arr=new int[Integer.MAX_VALUE];
+
+        // 入栈
+        public void push(int i){
+            int pos = arr.length;
+            arr[pos]=i;
+        }
+
+        public int pop(){
+            int tem=arr[arr.length-1];
+            arr[arr.length-1]=-1;
+            return tem;
+        }
+
+    }
+
+
+    public class QueueStack{
+        private Queue<Integer> queue1=new LinkedList<>();
+        private Queue<Integer> queue2=new LinkedList<>();
+
+
+        public void push(Integer i){
+            queue1.offer(i);
+            if(!queue2.isEmpty()){
+                queue1.offer(queue2.poll());
+            }
+
+            queue2.offer(i);
+            queue1.poll();
+        }
+
+        public Integer pop(){
+            return queue1.poll();
+        }
+    }
 }
