@@ -2,16 +2,18 @@ package com.beppe;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 
 /**
  * @author beppe
  * @data 2020/7/27 14:59
- * @description :
+ * @description : 测试启动类
  */
 @SpringBootApplication
-public class RedisApplication {
+@EnableCaching
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(RedisApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }
