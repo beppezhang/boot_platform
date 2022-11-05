@@ -7,8 +7,8 @@ public class OtherProcessTemplate extends AbstractTemplate{
         System.out.println("this is the OtherProcessTemplate doProcess");
     }
 
-    @Override
-    public void process() {
-        System.out.println("this is the OtherProcessTemplate process");
-    }
+//    @Override
+//    public void process() {
+//        System.out.println("this is the OtherProcessTemplate process");
+//    }
 }

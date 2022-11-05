@@ -1,11 +1,8 @@
 package com.beppe.service;
 
-import org.springframework.stereotype.Service;
+public interface OrderService {
 
-@Service
-public class OrderService  {
+     void doCal();
 
-    public void doCal(){
-        System.out.println("do the cal");
-    }
+     void createorder();
 }

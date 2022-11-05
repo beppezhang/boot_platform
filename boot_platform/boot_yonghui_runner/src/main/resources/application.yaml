@@ -1,0 +1,13 @@
+server:
+  port: 38080
+
+dubbo:
+  application:
+    name: yonghui-runner
+  registry:
+    address: zookeeper-sit.mid.io:2181
+    protocol: zookeeper
+    timeout: 10000
+  protocol:
+    name: dubbo
+#    port: 50880

@@ -1,12 +1,22 @@
 package com.beppe.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import javafx.util.Pair;
+
+import java.util.List;
+
 public class Order {
 
     private int id;
 
     private String name;
 
-    private OrderHeader header;
+    private int parentId;
+
+    private List<OrderHeader> headers;
+
+    private List<Pair<String,String>> pairs;
 
     public int getId() {
         return id;
@@ -24,11 +34,35 @@ public class Order {
         this.name = name;
     }
 
-    public OrderHeader getHeader() {
-        return header;
+    public List<OrderHeader> getHeaders() {
+        return headers;
     }
 
-    public void setHeader(OrderHeader header) {
-        this.header = header;
+    public void setHeaders(List<OrderHeader> headers) {
+        this.headers = headers;
     }
+
+    public int getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(int parentId) {
+        this.parentId = parentId;
+    }
+
+    @JsonIgnore
+    @JSONField(serialize = false)
+    public List<Pair<String, String>> getPairs() {
+        return pairs;
+    }
+
+    @JsonIgnore
+    @JSONField(serialize = false)
+    public void setPairs(List<Pair<String, String>> pairs) {
+        this.pairs = pairs;
+    }
+
+
+
+
 }

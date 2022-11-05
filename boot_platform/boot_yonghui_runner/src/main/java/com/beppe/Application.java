@@ -1,19 +1,20 @@
 package com.beppe;
 
+import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cache.annotation.EnableCaching;
 
 /**
  * @author beppe
  * @data 2020/7/27 14:59
- * @description : 测试启动类
+ * @description :
  */
 @SpringBootApplication
-//@EnableCaching
-public class TestApplication {
+@EnableDubbo
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(TestApplication.class, args);
+        System.out.println("启动spring");
+        SpringApplication.run(Application.class, args);
     }
 }

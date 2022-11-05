@@ -10,10 +10,10 @@ import org.springframework.cache.annotation.EnableCaching;
  * @description : 测试启动类
  */
 @SpringBootApplication
-//@EnableCaching
-public class TestApplication {
+@EnableCaching
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(TestApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }

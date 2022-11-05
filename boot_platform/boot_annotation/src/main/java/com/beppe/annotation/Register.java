@@ -1,6 +1,6 @@
 package com.beppe.annotation;
 
-import org.springframework.stereotype.Component;
+//import org.springframework.stereotype.Component;
 
 import java.lang.annotation.*;
 
@@ -13,7 +13,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@Component
+//@Component
 public @interface Register {
 
     // 编码    用于记录
