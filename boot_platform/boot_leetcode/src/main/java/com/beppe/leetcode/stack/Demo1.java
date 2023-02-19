@@ -2,9 +2,7 @@ package com.beppe.leetcode.stack;
 
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 public class Demo1 {
 
@@ -13,6 +11,31 @@ public class Demo1 {
         boolean valid = isValidate("(){}{[[]}]");
         System.out.println("valid:"+valid);
     }
+
+    @Test
+    public void test2(){
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        while (stack.size()!=0){
+            Integer pop = stack.pop();
+            System.out.println("栈pop出的数据,"+pop);
+        }
+    }
+
+    @Test
+    public void test3(){
+        Queue<Integer> queue = new ArrayDeque<>();
+        queue.offer(1);
+        queue.offer(2);
+        queue.offer(3);
+        while (queue.size()!=0){
+            Integer pop = queue.poll();
+            System.out.println("队列poll出的数据,"+pop);
+        }
+    }
+
 
     private boolean valid(String str) {
         Stack<Character> stack = new Stack<>();
