@@ -14,6 +14,9 @@ public class TwoTreeNode {
     // 右节点
     public TwoTreeNode right;
 
+    public TwoTreeNode() {
+    }
+
     public TwoTreeNode(Integer val, TwoTreeNode left, TwoTreeNode right) {
         this.val = val;
         this.left = left;
