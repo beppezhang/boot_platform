@@ -16,10 +16,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Extension(type = ExtensionType.STEP_CHOREOGRAPHY_STRATEGY, point = PointAbilityScenes.STEP_CHOREOGRAPHY_STRATEGY, code = OrderDecideStepExt.YHSHOP_ORDER)
+@Extension(type = ExtensionType.STEP_CHOREOGRAPHY_STRATEGY, point = PointAbilityScenes.STEP_CHOREOGRAPHY_STRATEGY, code = OrderDecideStepExt.APP_ORDER)
 public class OrderDecideStepExt extends AbstractDecideStepsExt{
 
-    public final static String YHSHOP_ORDER = BusinessTypeCode.APP_ORDER;
+    public final static String APP_ORDER = BusinessTypeCode.APP_ORDER;
     // 策略容器   项目启动的时候注册到容器中
     private static Map<String, List<ActionStepContext>> actionEventStepsRegistry = new HashMap<>();
 

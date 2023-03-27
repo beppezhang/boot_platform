@@ -15,7 +15,7 @@ public abstract class AbstractDecideStepsExt implements DecideStepsExt<OrderExec
     // 获取执行步骤
     @Override
     public List<ActionStepContext> decideSteps(OrderExecContext orderExecContext) {
-        if(orderExecContext==null || StringUtils.isBlank(orderExecContext.getActionCode())){
+         if(orderExecContext==null || StringUtils.isBlank(orderExecContext.getActionCode())){
             return null;
         }
         return getDecideSteps(orderExecContext);
