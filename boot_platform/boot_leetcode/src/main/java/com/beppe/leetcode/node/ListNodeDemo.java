@@ -83,6 +83,40 @@ public class ListNodeDemo {
 
     }
 
+    @Test
+    public void test2(){
+        // 合并两个有序链表
+        ListNode node1=new ListNode(1,new ListNode(3,new ListNode(8,null)));
+        ListNode node2=new ListNode(2,null);
+        ListNode listNode = mergeTwoNodes(node1, node2);
+    }
+
+    private ListNode mergeTwoNodes(ListNode node1,ListNode node2){
+        ListNode dummy=new ListNode(-1);
+        ListNode p=dummy;
+        while (node1!=null && node2!=null){
+            if(node1.val<node2.val){
+                p.next=node1;
+                node1=node1.next;
+
+            }else {
+                p.next=node2;
+                node2=node2.next;
+
+            }
+            p=p.next;
+
+        }
+        if(node1!=null){
+            p.next=node1;
+        }
+        if(node2!=null){
+            p.next=node2;
+        }
+        return dummy.next;
+    }
+
+
 
     private ListNode mergeTwoLists(ListNode ln1,ListNode ln2){
         

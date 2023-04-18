@@ -4,14 +4,20 @@ import com.beppe.common.OrderContext;
 import com.beppe.constant.OrderEventImpl;
 import com.beppe.constant.OrderStatusEnum;
 import com.beppe.entity.Order;
+import com.beppe.service.PayService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractOrderProcessor implements OrderProcessor {
 
+    @Autowired
+    private PayService payService;
+
     @Override
     public void handle(OrderEventImpl orderEvent) {
+        payService.doPay();
         System.out.println("开始进入状态处理器抽象类");
         //  校验订单状态   比较订单状态  源状态是否服务预期
         Order order = orderEvent.getOrderContext().getOrder();

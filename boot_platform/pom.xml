@@ -28,8 +28,8 @@
         <module>boot_dubbo_api</module>
         <module>boot_dubbo_consumer</module>
         <module>boot_dubbo_provider</module>
-        <module>boot_extention_framework</module>
-        <module>boot_annotation</module>
+<!--        <module>boot_extention_framework</module>-->
+<!--        <module>boot_annotation</module>-->
         <module>boot_push_service_center</module>
         <module>boot_push_service_sdk</module>
         <module>boot_command</module>
@@ -37,7 +37,7 @@
         <module>boot_leetcode</module>
         <module>boot_scaf</module>
         <module>boot_flow</module>
-        <module>boot_yonghui_runner</module>
+<!--        <module>boot_yonghui_runner</module>-->
         <module>boot_event_bus</module>
     </modules>
 

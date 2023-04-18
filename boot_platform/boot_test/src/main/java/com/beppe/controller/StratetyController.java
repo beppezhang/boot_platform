@@ -36,4 +36,6 @@ public class StratetyController {
 //        System.out.println("ii:"+i);
         System.out.println("ooo:"+ JSON.toJSONString(city));
     }
+
+
 }
