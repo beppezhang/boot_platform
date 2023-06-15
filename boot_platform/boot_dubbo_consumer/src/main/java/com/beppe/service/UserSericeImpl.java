@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserSericeImpl implements IUserService{
 
-    @Reference(version = "1.0.0")
+    @Reference(version = "1.0.0",url="dubbo://127.0.0.1:20880")
     OrderSerice orderSerice;
 
     @HystrixCommand(fallbackMethod = "hello")

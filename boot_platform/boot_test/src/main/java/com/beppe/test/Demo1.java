@@ -15,6 +15,7 @@ import com.beppe.model.UserDto;
 import com.beppe.utils.DateUtils;
 import com.google.common.collect.Lists;
 import com.google.gson.annotations.JsonAdapter;
+import com.yonghui.common.util.MoneyUtils;
 import javafx.util.Pair;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -142,10 +143,10 @@ public class Demo1 {
         Order order = new Order();
         order.setId(111);
         order.setName("beppe1");
-        ComponentContext context = ComponentContext.builder().id(11110000l).name("zhangsl").
-                result(order).build();
-        Order result = (Order) context.getResult();
-        System.out.println("name:" + result.getName());
+//        ComponentContext context = ComponentContext.builder().id(11110000l).name("zhangsl").
+//                result(order).build();
+//        Order result = (Order) context.getResult();
+//        System.out.println("name:" + result.getName());
 
     }
 
@@ -504,30 +505,22 @@ public class Demo1 {
         Order order4 = new Order();
         order4.setName("aa");
         order4.setAmout(new BigDecimal(2.0));
-        List<Order> list1 = Lists.newArrayList(order1,order2);
-        List<Order> list2 = Lists.newArrayList(order3,order4);
-        List<List<Order>> lists = Lists.newArrayList(list1, list2);
-        lists.stream().forEach(orders->{
-            Iterator<Order> iterator = orders.iterator();
-            while (iterator.hasNext()){
-                Order next = iterator.next();
-                if(next.getName()=="bb"){
-                    iterator.remove();
-                }
-            }
-        });
-        System.out.println("lists:"+lists);
+        List<Order> list1 = Lists.newArrayList(order1,order2,order3,order4);
+
     }
 
     @Test
     public void test16(){
-        Order order1 = new Order();
-        order1.setId(111);
-        order1.setName("aa");
-        order1.setAmout(new BigDecimal(2.0));
-        String s = JSON.toJSONString(order1);
-        System.out.println("sss:"+s);
-
+        Map<String, BigDecimal> map = com.google.common.collect.Maps.newHashMap();
+        map.put("111",new BigDecimal(2));
+        map.put("222",new BigDecimal(4));
+        for (Map.Entry<String, BigDecimal> enty:map.entrySet()){
+            if ("222".equals(enty.getKey())){
+                BigDecimal substract = MoneyUtils.substract(enty.getValue(), BigDecimal.ONE);
+                enty.setValue(substract);
+            }
+        }
+        System.out.println("aaa");
     }
 
     @Test

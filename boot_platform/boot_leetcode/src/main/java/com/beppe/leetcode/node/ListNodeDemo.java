@@ -16,7 +16,8 @@ public class ListNodeDemo {
         ListNode l5 = new ListNode(5, l4);
 //        ListNode listNode = rotateNode(l5, 1);
 //        ListNode listNode = copyNode(l5);
-        ListNode listNode = removeN(l5, 2);
+        ListNode listNode = findN(l5, 2);
+
 
     }
 
@@ -121,6 +122,21 @@ public class ListNodeDemo {
     private ListNode mergeTwoLists(ListNode ln1,ListNode ln2){
         
         return null;
+    }
+
+    private ListNode findN(ListNode node,int k){
+        ListNode p1=node;
+        ListNode p2=node;
+        // p1  走了k
+        for (int i = 0; i <k ; i++) {
+            p1=p1.next;
+        }
+        // p2  走 n-k
+        while (p1!=null){
+            p2=p2.next;
+            p1=p1.next;
+        }
+        return p2;
     }
 
 

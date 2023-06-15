@@ -8,6 +8,7 @@ dubbo:
     address: zookeeper-sit.mid.io:2181
     protocol: zookeeper
     timeout: 10000
+    check: false
   protocol:
     name: dubbo
 #    port: 50880

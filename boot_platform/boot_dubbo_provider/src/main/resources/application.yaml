@@ -1,13 +1,14 @@
 server:
   port: 28080
-# dubbo ÅäÖÃ
+# dubbo ï¿½ï¿½ï¿½ï¿½
 dubbo:
   application:
     name: order-provider
   registry:
-    address: 106.54.189.153:2181
+    address: zookeeper-sit.mid.io:2181
     protocol: zookeeper
     timeout: 10000
+    register: false
   protocol:
     name: dubbo
     port: 20880
