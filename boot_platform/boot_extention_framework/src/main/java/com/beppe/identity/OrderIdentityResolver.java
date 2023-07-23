@@ -7,10 +7,10 @@ import com.beppe.common.OrderExecContext;
 import com.beppe.step.OrderDecideStepExt;
 
 @BusinessIdentity(code = PointAbilityScenes.STEP_CHOREOGRAPHY_STRATEGY, name = "流程编排扩展点身份确认")
-public class PlaceRequestTranslatorResolver implements IdentityResolver<OrderExecContext> {
+public class OrderIdentityResolver implements IdentityResolver<OrderExecContext> {
 
     @Override
     public String getExtensionCode(OrderExecContext orderExecContext) {
-        return OrderDecideStepExt.YHSHOP_ORDER;
+        return OrderDecideStepExt.APP_ORDER;
     }
 }
