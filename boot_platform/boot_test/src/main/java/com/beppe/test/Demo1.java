@@ -13,8 +13,10 @@ import com.beppe.model.OrderUpdateInfo;
 import com.beppe.model.UserCopy;
 import com.beppe.model.UserDto;
 import com.beppe.utils.DateUtils;
+import com.fasterxml.jackson.datatype.jsr310.DecimalUtils;
 import com.google.common.collect.Lists;
 import com.google.gson.annotations.JsonAdapter;
+import com.yh.infra.common.utils.BigDecimalUtil;
 import com.yonghui.common.util.MoneyUtils;
 import javafx.util.Pair;
 import org.apache.commons.collections.CollectionUtils;
@@ -45,6 +47,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Demo1 {
 
@@ -525,46 +528,38 @@ public class Demo1 {
 
     @Test
     public void test17(){
+        int gift=1;
         OrderItem orderItem1 = new OrderItem();
         orderItem1.setGoodsId("001");
-        orderItem1.setOrderRemark("不切X2；中等X1；MX2");
+        orderItem1.setOrderRemark("normal");
         orderItem1.setQty(new BigDecimal(4));
         OrderItem orderItem3 = new OrderItem();
-        orderItem3.setGoodsId("003");
-        orderItem3.setOrderRemark("不切X2；中等X1");
+        orderItem3.setGoodsId("002");
+        orderItem3.setOrderRemark("normal");
         orderItem3.setQty(new BigDecimal(1));
         OrderItem orderItem2 = new OrderItem();
-        orderItem2.setGoodsId("001");
-        orderItem2.setOrderRemark("不切X2；中等X1；MX2");
+        orderItem2.setGoodsId("004");
+        orderItem2.setOrderRemark("normal");
         orderItem2.setQty(new BigDecimal(1));
         OrderItem orderItem4 = new OrderItem();
-        orderItem4.setGoodsId("003");
-        orderItem4.setOrderRemark("不切X2；中等X1");
-        orderItem4.setQty(new BigDecimal(2));
+        orderItem4.setGoodsId("002");
+        orderItem4.setOrderRemark("slave");
+        orderItem4.setQty(new BigDecimal(1));
         List<OrderItem> orderItems = Lists.newArrayList(orderItem1, orderItem3,orderItem2,orderItem4);
-        Map<String, Map<String, Integer>> remarkMap = Maps.newHashMap();
-        orderItems.stream()
-                .filter(item -> StringUtils.isNotBlank(item.getOrderRemark()))
-                .filter(item -> item.getOrderRemark().contains("X"))// 包含备注
-                .forEach(orderItem -> {
-                    Map<String, Integer> countMap = remarkMap.get(orderItem.getGoodsId());
-                    if (Objects.isNull(countMap)) {
-                        countMap = Maps.newHashMap();
-                        String orderRemark = orderItem.getOrderRemark();
-                        String[] split = orderRemark.split("；");
-                        for (String str : split) {
-                            String[] split1 = str.split("X");
-                            int count = Integer.parseInt(split1[1]);
-                            countMap.put(split1[0], count);
-                        }
-                        remarkMap.put(orderItem.getGoodsId(), countMap);
-                    }
-                    // 根据数量进行分配
-                    Integer qty = orderItem.getQty().intValue();
-                    String newRemark = reduceRemarkNum(countMap, qty);
-                    orderItem.setOrderRemark(newRemark);
+        // slave  先减  再减   普通
+        List<OrderItem> notSlave = orderItems.stream().filter(orderItem -> {
+            if (StringUtils.equals("slave", orderItem.getOrderRemark())) {
+                orderItem.setQty(BigDecimal.valueOf(orderItem.getQty().intValue() - gift));
+                return false;
+            }
+            return true;
+        }).collect(Collectors.toList());
+        notSlave.stream().forEach(orderItem->{
+            orderItem.setQty(BigDecimal.ZERO);
+        });
+        System.out.println("orderItems:"+orderItems);
 
-                });
+
 
     }
 

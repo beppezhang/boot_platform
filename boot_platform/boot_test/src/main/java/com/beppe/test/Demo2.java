@@ -3,9 +3,15 @@ package com.beppe.test;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
+import com.alibaba.fastjson.support.odps.udf.JSONTuple;
+import com.beppe.model.BuildItem;
+import com.beppe.model.BuildItemCopy;
+import com.beppe.model.ChildClass;
 import com.beppe.model.OrderItem;
+import com.beppe.model.UserDto;
 import com.beppe.utils.JDKVersion8HashOfLong;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.google.gson.annotations.JsonAdapter;
 import com.yonghui.common.config.ConfigManager;
 import com.yonghui.makeup.service.model.CartUpdateRequest;
@@ -13,10 +19,20 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.joda.time.LocalTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+import org.springframework.beans.BeanUtils;
 import org.testng.annotations.Test;
 import rx.functions.Action0;
 
 import javax.com.yonghui.common.exception.log.ExceptionLogger;
+import java.lang.reflect.Method;
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -155,12 +171,69 @@ public class Demo2 {
 
     @Test
     public void test5() throws ParseException {
-        String s= "2023-04-23 11:32:15";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date parse = simpleDateFormat.parse(s);
-        System.out.println("parse:"+parse);
+        List<Map<String,String>> results = Lists.newArrayList();
+        String FORMATTER_TIME="HH:mm";
+        DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(FORMATTER_TIME);
+        LocalTime startTime = dateTimeFormatter.parseLocalTime("16:00");
+        LocalTime endTime = dateTimeFormatter.parseLocalTime("22:20").minusHours(1);
+        while (!endTime.isBefore(startTime)){
+            LocalTime oneLater = startTime.plusHours(1);
+            LocalTime startTimeNext = oneLater.isBefore(startTime) ? LocalTime.parse("23:59") : oneLater;
+            Map<String,String> map = Maps.newHashMap();
+            map.put("start",startTime.toString(FORMATTER_TIME));
+            map.put("end",startTimeNext.toString(FORMATTER_TIME));
+            results.add(map);
+            startTime = startTimeNext;
+        }
+        System.out.println("tttt:"+results);
+    }
+
+    @Test
+    public void test6() throws Exception {
+        Class<?> aClass = Class.forName("com.mysql.jdbc.Driver");
+        String user = "root";
+        String password = "123456";
+        String url = "jdbc:mysql://localhost:3306/test";
+        // 得到mysql的连接
+        Connection connection = DriverManager.getConnection(url, user, password);
+        // 得到可以与mysql语句进行交互的对象
+        Statement statement = connection.createStatement();
+        // 关闭与 mysql语句进行交互的对象
+        statement.close();
+        // 关闭与 mysql语句进行交互的对象
+        connection.close();
+
 
     }
+
+    public static <S, T> T copy(S object, Class<T> clazz) {
+        try {
+            if(Objects.isNull(object) || Objects.isNull(clazz)){
+                return null;
+            }
+            T t = clazz.newInstance();
+            BeanUtils.copyProperties(object, t);
+
+            return t;
+        } catch (Exception e) {
+            System.out.println("copyexception");
+            ExceptionLogger.log(e);
+        }
+
+        return null;
+    }
+
+    @Test
+    public void test7() throws Exception {
+        MyClassLoader myClassLoader = new MyClassLoader("D:/test");
+        Class clazz = myClassLoader.loadClass("com.beppe.model.ClassLoaderModel");
+        Object obj = (Object) clazz.newInstance();
+        Method method = clazz.getDeclaredMethod("sout", null);
+        method.invoke(obj,null);
+
+    }
+
+
 
 
 
