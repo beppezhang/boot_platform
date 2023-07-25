@@ -13,4 +13,8 @@ public class TwoTreeNode {
         this.left = left;
         this.right = right;
     }
+
+    public TwoTreeNode(int val) {
+        this.val = val;
+    }
 }
