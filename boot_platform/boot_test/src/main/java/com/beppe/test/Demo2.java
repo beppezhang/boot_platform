@@ -233,6 +233,19 @@ public class Demo2 {
 
     }
 
+    @Test
+    public void test8(){
+        List<String> ids=Lists.newArrayList("aa","bb","cc");
+        List<String> allList=Lists.newArrayList("aa","dd","bb");
+        for (String aa:allList){
+            if(!ids.contains(aa)){
+                continue;
+            }
+            System.out.println("ids:"+aa);
+        }
+
+    }
+
 
 
 
