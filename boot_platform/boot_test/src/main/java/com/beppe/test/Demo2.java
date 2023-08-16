@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.alibaba.fastjson.support.odps.udf.JSONTuple;
+import com.beppe.common.SnowFlake;
 import com.beppe.model.BuildItem;
 import com.beppe.model.BuildItemCopy;
 import com.beppe.model.ChildClass;
@@ -244,6 +245,15 @@ public class Demo2 {
             System.out.println("ids:"+aa);
         }
 
+    }
+
+    @Test
+    public void test9(){
+        SnowFlake snowFlake = new SnowFlake(2, 3);
+
+        for (int i = 0; i < 20; i++) {
+            System.out.println(snowFlake.nextId());
+        }
     }
 
 
