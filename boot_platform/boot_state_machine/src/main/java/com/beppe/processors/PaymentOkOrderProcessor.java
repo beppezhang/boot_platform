@@ -4,7 +4,9 @@ import com.beppe.annotation.OrderProcess;
 import com.beppe.constant.OrderEvent;
 import com.beppe.constant.OrderEventImpl;
 import com.beppe.constant.OrderStatusEnum;
+import org.springframework.stereotype.Component;
 
+@Component
 @OrderProcess(event = OrderEvent.EVT_PEYMENT_ORDER)
 public class PaymentOkOrderProcessor extends AbstractOrderProcessor{
 

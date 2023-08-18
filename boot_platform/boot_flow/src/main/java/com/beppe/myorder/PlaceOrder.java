@@ -19,9 +19,9 @@ public class PlaceOrder {
 
     public String place(){
         // 构造订单预览行为事件
-        MyOrderExeContext myOrderExeContext = new MyOrderExeContext();
-        // 流程编排框架执行方法
-        actionStepExecutor.execute(myOrderExeContext);
+//        MyOrderExeContext myOrderExeContext = new MyOrderExeContext();
+//        // 流程编排框架执行方法
+//        actionStepExecutor.execute(myOrderExeContext);
         return "success";
     }
 }

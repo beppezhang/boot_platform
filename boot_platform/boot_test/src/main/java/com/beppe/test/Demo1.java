@@ -8,19 +8,26 @@ import com.beppe.entity.ComponentContext;
 import com.beppe.entity.Order;
 import com.beppe.entity.OrderDTO;
 import com.beppe.entity.OrderHeader;
+import com.beppe.model.OrderItem;
 import com.beppe.model.OrderUpdateInfo;
 import com.beppe.model.UserCopy;
 import com.beppe.model.UserDto;
 import com.beppe.utils.DateUtils;
+import com.fasterxml.jackson.datatype.jsr310.DecimalUtils;
 import com.google.common.collect.Lists;
 import com.google.gson.annotations.JsonAdapter;
+import com.yh.infra.common.utils.BigDecimalUtil;
+import com.yonghui.common.util.MoneyUtils;
 import javafx.util.Pair;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Triple;
 import org.joda.time.LocalDateTime;
 import org.joda.time.LocalTime;
 import org.springframework.cglib.beans.BeanCopier;
+import org.springframework.util.StopWatch;
 import org.testng.annotations.Test;
+import org.testng.collections.Maps;
 
 import java.math.BigDecimal;
 import java.text.MessageFormat;
@@ -29,6 +36,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -39,6 +47,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Demo1 {
 
@@ -137,10 +146,10 @@ public class Demo1 {
         Order order = new Order();
         order.setId(111);
         order.setName("beppe1");
-        ComponentContext context = ComponentContext.builder().id(11110000l).name("zhangsl").
-                result(order).build();
-        Order result = (Order) context.getResult();
-        System.out.println("name:" + result.getName());
+//        ComponentContext context = ComponentContext.builder().id(11110000l).name("zhangsl").
+//                result(order).build();
+//        Order result = (Order) context.getResult();
+//        System.out.println("name:" + result.getName());
 
     }
 
@@ -391,6 +400,192 @@ public class Demo1 {
         }
         beanCopier.copy(resourceObj,targetObject,null);
         return targetObject;
+    }
+
+    @Test
+    public void test11(){
+//        String format = String.format("%s,%s-%s", "2022-11-13", "20:00", "20:30");
+//        String IMMEDIATE_DESCRIPTION_DEL="立即配送,预计%s送达";
+//        String format = String.format(IMMEDIATE_DESCRIPTION_DEL, "20:30");
+//        System.out.println("format:"+format);
+        LocalDateTime day1 = new LocalDateTime("2022-11-24");
+        LocalDateTime day2 = new LocalDateTime("2022-11-25");
+        Date date1 = day1.toDate();
+        Date date2 = day2.toDate();
+       List<Date> list = Lists.newArrayList();
+        list.add(date2);
+        list.add(date1);
+        System.out.println("list11:"+list);
+        list.sort(new Comparator<Date>() {
+            @Override
+            public int compare(Date o1, Date o2) {
+                return o1.compareTo(o2);
+            }
+        });
+        System.out.println("list:"+list);
+
+
+    }
+
+    @Test
+    public void test12(){
+        List<UserDto> list = Lists.newArrayList();
+        UserDto userDto1 = new UserDto();
+        userDto1.setName("beppe1");
+        userDto1.setAge(12);
+        UserDto userDto2 = new UserDto();
+        userDto2.setName("beppe2");
+        userDto2.setAge(null);
+        list.add(userDto1);
+        list.add(userDto2);
+        Optional<UserDto> first = Optional.ofNullable(list).orElse(Lists.newArrayList()).stream()
+                .filter(userDto -> {
+                    return StringUtils.equals("beppe3",userDto.getName());
+                }).findFirst();
+        boolean present = first.isPresent();
+        System.out.println("present:"+present);
+    }
+
+    @Test
+    public void test13() throws InterruptedException {
+//        StopWatch stopWatch = new StopWatch("test13");
+//        stopWatch.start();
+//        System.out.println("this is  test");
+//        Thread.sleep(100);
+//        stopWatch.stop();
+//        System.out.println("time:"+stopWatch.getLastTaskTimeMillis());
+//        stopWatch.start();
+//        Thread.sleep(50);
+//        stopWatch.stop();
+//        System.out.println("time111:"+stopWatch.getLastTaskTimeMillis());
+//        System.out.println("aaa");
+//        int i = 10 & 4;
+//        System.out.println("iii:"+i);
+        List<String> strings = Lists.newArrayList("aa", "bb", "cc");
+        for(String str:strings){
+            if(str.equals("bb")){
+                continue;
+            }
+            System.out.println("str:"+str);
+        }
+//        strings.stream().peek(str->{})
+
+
+    }
+
+    @Test
+    public void test14(){
+        Order order1 = new Order();
+        order1.setName("aa");
+        Order order2 = new Order();
+        order2.setName("bb");
+        order2.setAmout(new BigDecimal(2.0));
+        Order order3 = new Order();
+        order3.setAmout(new BigDecimal(2.0));
+        List<Order> list = Lists.newArrayList(order1, order2, order3);
+//        List<Order> list1 = Lists.newArrayList(order1, order2);
+////        list.removeAll(list1);
+//        boolean bb = list.stream().anyMatch(order -> order.getName().equals("dd"));
+//        System.out.println("bb:"+bb);
+        BigDecimal reduce = list.stream()
+                .map(item->{
+                    return Objects.isNull(item.getAmout())?BigDecimal.ZERO:item.getAmout();
+                }).reduce(BigDecimal.ZERO, BigDecimal::add);
+        System.out.println("aaa:"+reduce);
+    }
+
+    @Test
+    public void test15(){
+        // id  列表
+        Order order1 = new Order();
+        order1.setName("aa");
+        Order order2 = new Order();
+        order2.setName("bb");
+        order2.setAmout(new BigDecimal(2.0));
+        Order order3 = new Order();
+        order3.setName("aa");
+        order3.setAmout(new BigDecimal(2.0));
+        Order order4 = new Order();
+        order4.setName("aa");
+        order4.setAmout(new BigDecimal(2.0));
+        List<Order> list1 = Lists.newArrayList(order1,order2,order3,order4);
+
+    }
+
+    @Test
+    public void test16(){
+        Map<String, BigDecimal> map = com.google.common.collect.Maps.newHashMap();
+        map.put("111",new BigDecimal(2));
+        map.put("222",new BigDecimal(4));
+        for (Map.Entry<String, BigDecimal> enty:map.entrySet()){
+            if ("222".equals(enty.getKey())){
+                BigDecimal substract = MoneyUtils.substract(enty.getValue(), BigDecimal.ONE);
+                enty.setValue(substract);
+            }
+        }
+        System.out.println("aaa");
+    }
+
+    @Test
+    public void test17(){
+        int gift=1;
+        OrderItem orderItem1 = new OrderItem();
+        orderItem1.setGoodsId("001");
+        orderItem1.setOrderRemark("normal");
+        orderItem1.setQty(new BigDecimal(4));
+        OrderItem orderItem3 = new OrderItem();
+        orderItem3.setGoodsId("002");
+        orderItem3.setOrderRemark("normal");
+        orderItem3.setQty(new BigDecimal(1));
+        OrderItem orderItem2 = new OrderItem();
+        orderItem2.setGoodsId("004");
+        orderItem2.setOrderRemark("normal");
+        orderItem2.setQty(new BigDecimal(1));
+        OrderItem orderItem4 = new OrderItem();
+        orderItem4.setGoodsId("002");
+        orderItem4.setOrderRemark("slave");
+        orderItem4.setQty(new BigDecimal(1));
+        List<OrderItem> orderItems = Lists.newArrayList(orderItem1, orderItem3,orderItem2,orderItem4);
+        // slave  先减  再减   普通
+        List<OrderItem> notSlave = orderItems.stream().filter(orderItem -> {
+            if (StringUtils.equals("slave", orderItem.getOrderRemark())) {
+                orderItem.setQty(BigDecimal.valueOf(orderItem.getQty().intValue() - gift));
+                return false;
+            }
+            return true;
+        }).collect(Collectors.toList());
+        notSlave.stream().forEach(orderItem->{
+            orderItem.setQty(BigDecimal.ZERO);
+        });
+        System.out.println("orderItems:"+orderItems);
+
+
+
+    }
+
+    private String reduceRemarkNum(Map<String, Integer> countMap, Integer qty) {
+        Iterator<Map.Entry<String, Integer>> iterator = countMap.entrySet().iterator();
+        String newRemark="";
+        while (iterator.hasNext()) {
+            if(qty<=0){
+                break;
+            }
+            Map.Entry<String, Integer> next = iterator.next();
+            Integer remarkCount = next.getValue();
+            if (qty >= remarkCount) {
+                // 商品001   数量 3    备注A 2  备注B 2    (备注A 2   备注B 1  备注数量不变)
+                qty=qty-remarkCount;
+                newRemark = newRemark+next.getKey()+"X"+remarkCount+"；";
+                iterator.remove();
+            } else {
+                // 备注数量减
+                Integer remarkCountLeft=remarkCount-qty;
+                countMap.put(next.getKey(),remarkCountLeft);
+                newRemark= newRemark+next.getKey()+"X"+qty+"；";
+                qty=0;
+            }
+        }
+        return newRemark;
     }
 
 

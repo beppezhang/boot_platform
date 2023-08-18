@@ -28,8 +28,8 @@
         <module>boot_dubbo_api</module>
         <module>boot_dubbo_consumer</module>
         <module>boot_dubbo_provider</module>
-        <module>boot_extention_framework</module>
-        <module>boot_annotation</module>
+<!--        <module>boot_extention_framework</module>-->
+<!--        <module>boot_annotation</module>-->
         <module>boot_push_service_center</module>
         <module>boot_push_service_sdk</module>
         <module>boot_command</module>
@@ -45,7 +45,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.6.RELEASE</version>
+        <version>2.2.4.RELEASE</version>
         <relativePath/>
     </parent>
 

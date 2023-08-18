@@ -5,7 +5,9 @@ import com.beppe.annotation.OrderProcess;
 import com.beppe.constant.OrderEvent;
 import com.beppe.constant.OrderEventImpl;
 import com.beppe.constant.OrderStatusEnum;
+import org.springframework.stereotype.Component;
 
+@Component
 @OrderProcess(event = OrderEvent.EVT_CANCEL_ORDER)
 public class CancelOrderProcessor extends AbstractOrderProcessor{
 

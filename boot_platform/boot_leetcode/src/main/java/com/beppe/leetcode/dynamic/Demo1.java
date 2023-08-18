@@ -31,4 +31,14 @@ public class Demo1 {
         memo[n]=helper(memo,n-1)+helper(memo,n-2);
         return memo[n];
     }
+
+    @Test
+    public void test2(){
+        Integer i=1;
+        Integer a=1;
+        boolean equals = i.equals(a);
+        System.out.println("equals:"+equals);
+    }
+
+
 }

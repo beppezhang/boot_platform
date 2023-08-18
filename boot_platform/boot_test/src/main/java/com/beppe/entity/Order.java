@@ -4,6 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javafx.util.Pair;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class Order {
@@ -13,6 +14,8 @@ public class Order {
     private String name;
 
     private int parentId;
+
+    private transient BigDecimal amout;
 
     private List<OrderHeader> headers;
 
@@ -48,6 +51,14 @@ public class Order {
 
     public void setParentId(int parentId) {
         this.parentId = parentId;
+    }
+
+    public BigDecimal getAmout() {
+        return amout;
+    }
+
+    public void setAmout(BigDecimal amout) {
+        this.amout = amout;
     }
 
     @JsonIgnore

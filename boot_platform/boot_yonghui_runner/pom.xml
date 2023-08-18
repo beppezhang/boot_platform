@@ -38,19 +38,87 @@
         <dependency>
             <groupId>com.yonghui</groupId>
             <artifactId>makeup-api</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yonghui</groupId>
+            <artifactId>order-core-api</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yonghui</groupId>
+            <artifactId>trade-api</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yonghui</groupId>
+            <artifactId>trade-model</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yonghui</groupId>
+            <artifactId>ofs-burst-control-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>com.yonghui</groupId>
-            <artifactId>makeup-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <artifactId>order-guarantee-center-api</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
+
 
         <dependency>
             <groupId>com.yonghui</groupId>
             <artifactId>makeup-client</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yonghui</groupId>
+            <artifactId>order-common-center-api</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.yonghui</groupId>
+            <artifactId>picklist-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yonghui</groupId>
+            <artifactId>partner-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yonghui</groupId>
+            <artifactId>shopping-cart-service-api</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yonghui</groupId>
+            <artifactId>pay-gateway-hub-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yonghui</groupId>
+            <artifactId>promotion-api</artifactId>
+            <version>1.1-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>framework-enums</artifactId>
+                    <groupId>com.yonghui</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
 

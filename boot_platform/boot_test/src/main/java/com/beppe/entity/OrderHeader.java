@@ -15,6 +15,8 @@ public class OrderHeader {
 
     private Boolean status;
 
+    private transient String  addr;
+
     public int getId() {
         return id;
     }
@@ -53,5 +55,13 @@ public class OrderHeader {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public String getAddr() {
+        return addr;
+    }
+
+    public void setAddr(String addr) {
+        this.addr = addr;
     }
 }

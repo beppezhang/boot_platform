@@ -15,7 +15,7 @@ public class OrderSericeImpl implements OrderSerice {
     @HystrixCommand
     @Override
     public void createOrder() throws InterruptedException {
-        Thread.sleep(50);
+//        Thread.sleep(50);
         System.out.println("创建订单");
     }
 }
