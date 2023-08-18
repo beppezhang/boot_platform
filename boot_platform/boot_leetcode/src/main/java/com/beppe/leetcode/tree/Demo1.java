@@ -17,7 +17,7 @@ public class Demo1 {
         // 构造二叉树
         TwoTreeNode node1=new TwoTreeNode(4,new TwoTreeNode(12,null,null),new TwoTreeNode(13,null,null));
         TwoTreeNode node2=new TwoTreeNode(7,new TwoTreeNode(8,null,null),new TwoTreeNode(9,null,null));
-         node=new TwoTreeNode(5,node1,node2);
+        node=new TwoTreeNode(5,node1,node2);
     }
 
     static TwoTreeNode node10;
