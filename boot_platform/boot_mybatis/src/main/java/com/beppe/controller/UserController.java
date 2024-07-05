@@ -22,8 +22,7 @@ public class UserController {
     private UserMapper userMapper;
 
     @GetMapping("{id}")
-    public User selectUserById(@PathVariable("id") Integer id) throws InterruptedException {
-        Thread.sleep(100000);
+    public User selectUserById(@PathVariable("id") Integer id) {
         return userMapper.selectByPrimaryKey(id);
     }
 

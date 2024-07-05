@@ -11,6 +11,13 @@ public class OrderIdentityResolver implements IdentityResolver<OrderExecContext>
 
     @Override
     public String getExtensionCode(OrderExecContext orderExecContext) {
+        if(){
+
+        } else if () {
+
+        }else if(){
+
+        }
         return OrderDecideStepExt.APP_ORDER;
     }
 }

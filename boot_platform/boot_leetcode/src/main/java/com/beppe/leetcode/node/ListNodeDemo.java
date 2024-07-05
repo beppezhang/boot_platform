@@ -2,6 +2,8 @@ package com.beppe.leetcode.node;
 
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 /**
  * 给你一个链表的头节点 head ，旋转链表，将链表每个节点向右移动 k 个位置
  */
@@ -17,6 +19,7 @@ public class ListNodeDemo {
 //        ListNode listNode = rotateNode(l5, 1);
 //        ListNode listNode = copyNode(l5);
 //        ListNode listNode = findN(l5, 2);
+        reverseNode(l5);
 
 
     }
@@ -55,16 +58,16 @@ public class ListNodeDemo {
     }
 
     private ListNode reverseNode(ListNode head) {
-        ListNode cur = head;
-        ListNode pre = null;
-        while (cur != null) {
-            ListNode next =cur.next;
+        ListNode cur=head;
+        ListNode pre=null;
+        ListNode next=head;
+        while (cur!=null){
+            next=cur.next;
             cur.next=pre;
             pre=cur;
             cur=next;
         }
         return pre;
-
     }
 
     // 删除链表倒数第n个

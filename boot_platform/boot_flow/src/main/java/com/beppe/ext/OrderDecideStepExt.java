@@ -28,6 +28,7 @@ public class OrderDecideStepExt extends AbstractDecideStepsExt {
                 CommandFlowContext.instance()
                         .addPreValidCommands(
                                 new PreCommand())
+
                         .addCalculateCommands(
                                 new CalCommand())
                         .addAfterCommands(

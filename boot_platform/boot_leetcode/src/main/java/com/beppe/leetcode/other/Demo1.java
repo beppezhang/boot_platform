@@ -68,5 +68,41 @@ public class Demo1 {
 
     }
 
+    @Test
+    public void test(){
+//        int res=fib(20);
+//        System.out.println("结果："+res);
+        boolean huiwen = isHuiwen(32234);
+        System.out.println("是否回文:"+huiwen);
+    }
+    // 斐波那契 数列
+    private int fib(int i){
+        if(i<=2){
+            return 1;
+        }
+        return fib(i-1)+fib(i-2);
+    }
+
+    // 判断是否回文数
+    private boolean isHuiwen(int num){
+        List<Integer> res=new ArrayList<>();
+        while (num>0){
+           int mode= num%10;
+           num = num/10;
+           res.add(mode);
+        }
+        int left=0;
+        int right=res.size()-1;
+        while (right>=left){
+            if(res.get(left)!=res.get(right)){
+                return false;
+            }
+            right--;
+            left++;
+        }
+        return true;
+
+    }
+
 
 }

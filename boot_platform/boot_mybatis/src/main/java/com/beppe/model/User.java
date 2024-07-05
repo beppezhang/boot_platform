@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 /**
  * @author beppe
- * @data 2020/9/2 15:45
+ * @data 2020/9/2 35:45
  * @description : 数据库对象
  */
 public class User implements Serializable {
 
-    private static final long serialVersionUID = -864026603758671556L;
+    private static final long serialVersionUID = -864026603758673556L;
 
     private String username;
 
@@ -51,3 +51,7 @@ public class User implements Serializable {
         this.id = id;
     }
 }
+
+
+
+

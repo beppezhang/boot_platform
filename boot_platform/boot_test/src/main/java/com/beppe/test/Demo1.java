@@ -2,52 +2,21 @@ package com.beppe.test;
 
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
-import com.alibaba.fastjson.support.odps.udf.JSONTuple;
-import com.beppe.entity.ComponentContext;
 import com.beppe.entity.Order;
 import com.beppe.entity.OrderDTO;
-import com.beppe.entity.OrderHeader;
-import com.beppe.model.OrderItem;
-import com.beppe.model.OrderUpdateInfo;
-import com.beppe.model.UserCopy;
 import com.beppe.model.UserDto;
 import com.beppe.utils.DateUtils;
-import com.fasterxml.jackson.datatype.jsr310.DecimalUtils;
 import com.google.common.collect.Lists;
-import com.google.gson.annotations.JsonAdapter;
-import com.yh.infra.common.utils.BigDecimalUtil;
-import com.yonghui.common.util.MoneyUtils;
 import javafx.util.Pair;
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.Triple;
 import org.joda.time.LocalDateTime;
-import org.joda.time.LocalTime;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.util.StopWatch;
 import org.testng.annotations.Test;
-import org.testng.collections.Maps;
 
 import java.math.BigDecimal;
 import java.text.MessageFormat;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
-import java.util.function.Function;
+import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Demo1 {
 
@@ -519,8 +488,8 @@ public class Demo1 {
         map.put("222",new BigDecimal(4));
         for (Map.Entry<String, BigDecimal> enty:map.entrySet()){
             if ("222".equals(enty.getKey())){
-                BigDecimal substract = MoneyUtils.substract(enty.getValue(), BigDecimal.ONE);
-                enty.setValue(substract);
+//                BigDecimal substract = MoneyUtils.substract(enty.getValue(), BigDecimal.ONE);
+//                enty.setValue(substract);
             }
         }
         System.out.println("aaa");
@@ -528,38 +497,10 @@ public class Demo1 {
 
     @Test
     public void test17(){
-        int gift=1;
-        OrderItem orderItem1 = new OrderItem();
-        orderItem1.setGoodsId("001");
-        orderItem1.setOrderRemark("normal");
-        orderItem1.setQty(new BigDecimal(4));
-        OrderItem orderItem3 = new OrderItem();
-        orderItem3.setGoodsId("002");
-        orderItem3.setOrderRemark("normal");
-        orderItem3.setQty(new BigDecimal(1));
-        OrderItem orderItem2 = new OrderItem();
-        orderItem2.setGoodsId("004");
-        orderItem2.setOrderRemark("normal");
-        orderItem2.setQty(new BigDecimal(1));
-        OrderItem orderItem4 = new OrderItem();
-        orderItem4.setGoodsId("002");
-        orderItem4.setOrderRemark("slave");
-        orderItem4.setQty(new BigDecimal(1));
-        List<OrderItem> orderItems = Lists.newArrayList(orderItem1, orderItem3,orderItem2,orderItem4);
-        // slave  先减  再减   普通
-        List<OrderItem> notSlave = orderItems.stream().filter(orderItem -> {
-            if (StringUtils.equals("slave", orderItem.getOrderRemark())) {
-                orderItem.setQty(BigDecimal.valueOf(orderItem.getQty().intValue() - gift));
-                return false;
-            }
-            return true;
-        }).collect(Collectors.toList());
-        notSlave.stream().forEach(orderItem->{
-            orderItem.setQty(BigDecimal.ZERO);
-        });
-        System.out.println("orderItems:"+orderItems);
-
-
+        List<String> list = Lists.newArrayList("333","444");
+        List<String> list2 = Lists.newArrayList();
+        list.addAll(list2);
+        System.out.println("list"+list);
 
     }
 

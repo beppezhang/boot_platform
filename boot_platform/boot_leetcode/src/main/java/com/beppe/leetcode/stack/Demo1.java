@@ -8,7 +8,7 @@ public class Demo1 {
 
     @Test
     public void test1() {
-        boolean valid = isValidate("(){}{[[]}]");
+        boolean valid = isValidate("(){}{[[]]}");
         System.out.println("valid:"+valid);
     }
 
@@ -75,26 +75,25 @@ public class Demo1 {
 
     /**
      * 使用栈判断是否有效括号
-     *   1:先进先出   '(' 进栈     ')'  出栈
+     *   1:先进后出   '(' 进栈     ')'  出栈
      *   2: 出栈 时  栈中无数据  无效
      *   3： 出栈结束  栈中还有数据  无效
      * @return
      */
     public boolean isValidate(String str){
-        Stack<Character> stack = new Stack<>();
         Map<Character, Character> map = add();
-        for (int i=0;i<str.length();i++){
-            if(map.containsValue(str.charAt(i))){
+        Stack stack=new Stack<Character>();
+        for (int i = 0; i < str.length(); i++) {
+            if (map.containsValue(str.charAt(i))){
                 stack.push(str.charAt(i));
+            }else {
+                if(!stack.pop().equals(map.get(str.charAt(i)))){
+                   return false;
+                }
             }
-            if(stack.size()==0){
-                return false;
-            }
-            if(stack.pop()!=str.charAt(i)){
-                return false;
-            }
+
         }
-        if(stack.size()==0){
+        if (stack.isEmpty()){
             return true;
         }
         return false;

@@ -244,7 +244,7 @@ public class Demo1 {
         root.val=val;
         root.left=deSerialize(res);
         root.right=deSerialize(res);
-        return root;
+        return null;
 
     }
 

@@ -12,15 +12,16 @@ public class ListNodeDemo2 {
     public void test1() {
         ListNode listNode3 = new ListNode(3, null);
         ListNode listNode2 = new ListNode(2, listNode3);
-        ListNode listNode1 = new ListNode(3, listNode2);
+        ListNode listNode1 = new ListNode(1, listNode2);
 
         ListNode listNode4 = new ListNode(3, null);
         ListNode listNode5 = new ListNode(2, listNode4);
         ListNode listNode6 = new ListNode(1, listNode5);
 //        ListNode result = reverse(listNode1);
 //        ListNode listNode = numAdd(listNode1, listNode6);
-        boolean palindrome = isPalindrome(listNode1);
-        System.out.println("result:" + palindrome);
+//        boolean palindrome = isPalindrome(listNode1);
+        ListNode listNode = reverse1(listNode1);
+        System.out.println("result:" + listNode);
 
     }
 
@@ -88,5 +89,52 @@ public class ListNodeDemo2 {
         }
         return true;
     }
+
+    // 反转链表
+    private ListNode reverse1(ListNode head){
+        ListNode pre=null;
+        ListNode cur=head;
+        // 遍历链表
+        while (cur!=null){
+            // 先保存cur 后继节点
+            ListNode next= cur.next;
+            //当前节点next 指向 pre
+            cur.next=pre;
+            // pre 向前推进一个
+            pre=cur;
+            // cur 向前推进一个
+            cur=next;
+        }
+        return pre;
+
+    }
+
+    private ListNode removeEndN(ListNode head,int n){
+        ListNode dummy=new ListNode(-1);
+        dummy.next=head;
+        // 删除倒数N 则需要找到倒n+1
+        ListNode endN = findEndN(dummy, n + 1);
+        endN.next=endN.next.next;
+        return dummy.next;
+    }
+
+
+    // 删除倒数第N
+    private ListNode findEndN(ListNode head,int n){
+        //
+        ListNode p=head;
+        ListNode l=head;
+        // p 走n步
+        for (int i = 1; i <=n ; i++) {
+            p=p.next;
+        }
+        // p 走到头   l 从头开始走
+        while (p!=null){
+            p=p.next;
+            l=l.next;
+        }
+        return l;
+    }
+
 
 }

@@ -21,16 +21,6 @@
         <setting name="localCacheScope" value="SESSION"/>
     </settings>
 
-
-    <!--    <typeHandlers>
-            <typeHandler handler="com.wuzz.type.MyTypeHandler"></typeHandler>
-        </typeHandlers>-->
-
-    <!-- 对象工厂 -->
-    <!--    <objectFactory type="com.wuzz.objectfactory.GPObjectFactory">
-            <property name="wuzz" value="666"/>
-        </objectFactory>-->
-
     <plugins>
         <plugin interceptor="com.beppe.plugins.MyFirstPlugin">
             <property name="username" value="zhangsan"/>
@@ -38,22 +28,5 @@
 
         <plugin interceptor="com.github.pagehelper.PageInterceptor"/>
     </plugins>
-
-    <!--    <environments default="development">-->
-    <!--        <environment id="development">-->
-    <!--            <transactionManager type="JDBC"/>&lt;!&ndash; 单独使用时配置成MANAGED没有事务 &ndash;&gt;-->
-    <!--            <dataSource type="POOLED">-->
-    <!--                <property name="driver" value="${jdbc.driver}"/>-->
-    <!--                <property name="url" value="${jdbc.url}"/>-->
-    <!--                <property name="username" value="${jdbc.username}"/>-->
-    <!--                <property name="password" value="${jdbc.password}"/>-->
-    <!--            </dataSource>-->
-    <!--        </environment>-->
-    <!--    </environments>-->
-
-    <!--    <mappers>-->
-    <!--        <mapper resource="mapppers/"/>-->
-    <!--        <mapper resource="BlogMapperExt.xml"/>-->
-    <!--    </mappers>-->
 
 </configuration>

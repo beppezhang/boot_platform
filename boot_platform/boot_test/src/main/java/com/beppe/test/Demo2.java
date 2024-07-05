@@ -1,38 +1,32 @@
 package com.beppe.test;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
-import com.alibaba.fastjson.support.odps.udf.JSONTuple;
 import com.beppe.common.SnowFlake;
-import com.beppe.model.BuildItem;
-import com.beppe.model.BuildItemCopy;
-import com.beppe.model.ChildClass;
-import com.beppe.model.OrderItem;
-import com.beppe.model.UserDto;
+import com.beppe.entity.City;
+import com.beppe.entity.CityDo;
+import com.beppe.entity.ComponentContext;
 import com.beppe.utils.JDKVersion8HashOfLong;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.google.gson.annotations.JsonAdapter;
-import com.yonghui.common.config.ConfigManager;
-import com.yonghui.makeup.service.model.CartUpdateRequest;
+import io.netty.handler.codec.http.cookie.Cookie;
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.assertj.core.util.Sets;
+import org.ehcache.xml.model.TimeUnit;
+import org.joda.time.LocalDateTime;
 import org.joda.time.LocalTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.BeanWrapperImpl;
 import org.testng.annotations.Test;
 import rx.functions.Action0;
 
-import javax.com.yonghui.common.exception.log.ExceptionLogger;
-import java.lang.reflect.Method;
-import java.math.BigDecimal;
+import java.beans.PropertyDescriptor;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -44,8 +38,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
+import java.util.Set;
+import java.util.TimeZone;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.stream.Collectors;
 
 public class Demo2 {
+    
+    
 
     @Test
     public void test1(){
@@ -165,7 +167,7 @@ public class Demo2 {
             }
         } catch (Exception e) {
 
-            ExceptionLogger.log(e);
+//            ExceptionLogger.log(e);
         }
         return false;
     }
@@ -218,44 +220,100 @@ public class Demo2 {
             return t;
         } catch (Exception e) {
             System.out.println("copyexception");
-            ExceptionLogger.log(e);
+//            ExceptionLogger.log(e);
         }
 
         return null;
     }
 
     @Test
-    public void test7() throws Exception {
-        MyClassLoader myClassLoader = new MyClassLoader("D:/test");
-        Class clazz = myClassLoader.loadClass("com.beppe.model.ClassLoaderModel");
-        Object obj = (Object) clazz.newInstance();
-        Method method = clazz.getDeclaredMethod("sout", null);
-        method.invoke(obj,null);
-
+    public void test7()  {
+        Set<City> list = Sets.newHashSet();
+        City city = new City();
+        city.setId("11");
+        city.setName("beppe");
+        list.add(city);
+        city.setAmount(99l);
+        list.add(city);
+        System.out.println("size:"+list.size());
     }
 
     @Test
     public void test8(){
-        List<String> ids=Lists.newArrayList("aa","bb","cc");
-        List<String> allList=Lists.newArrayList("aa","dd","bb");
-        for (String aa:allList){
-            if(!ids.contains(aa)){
-                continue;
+        Map<String,List<Long>> map=Maps.newHashMap();
+        for (int i = 0; i < 4; i++) {
+            List<Long> list = map.get("beppe");
+            if(CollectionUtils.isEmpty(list)){
+                List<Long> aa=Lists.newArrayList();
+                aa.add(88l);
+                map.put("beppe",aa);
+            }else {
+                list.add(99l);
             }
-            System.out.println("ids:"+aa);
+
         }
+        System.out.println("map:"+map);
 
     }
 
     @Test
-    public void test9(){
-        SnowFlake snowFlake = new SnowFlake(2, 3);
+    public void test9() throws InstantiationException, IllegalAccessException {
+        City city = new City();
+        city.setAmount(10l);
+        city.setPublishTime(new Date());
+        bean2Bean(city, CityDo.class);
 
-        for (int i = 0; i < 20; i++) {
-            System.out.println(snowFlake.nextId());
+    }
+
+    public static <T> T bean2Bean(Object srcBeanObject, Class<T> class0) throws InstantiationException, IllegalAccessException {
+        try {
+            if (Objects.isNull(srcBeanObject)) {
+                return class0.newInstance();
+            } else {
+                T t = class0.newInstance();
+                if (srcBeanObject instanceof List) {
+                    list2Bean((List)srcBeanObject, t, "list");
+                } else {
+                    bean2Bean(srcBeanObject, t);
+                }
+
+                return t;
+            }
+        } catch (Exception var4) {
+            throw var4;
         }
     }
 
+    public static void list2Bean(List<?> srcBeanObject, Object destBeanObject, String listPropName) {
+        BeanWrapperImpl destBean = new BeanWrapperImpl(destBeanObject);
+        destBean.setPropertyValue(listPropName, srcBeanObject);
+    }
+
+    public static void bean2Bean(Object srcBeanObject, Object destBeanObject) {
+        BeanWrapperImpl srcBean = new BeanWrapperImpl(srcBeanObject);
+        BeanWrapperImpl destBean = new BeanWrapperImpl(destBeanObject);
+        PropertyDescriptor[] destDesc = destBean.getPropertyDescriptors();
+
+        try {
+            for (int i = 0; i < destDesc.length; ++i) {
+                String name = destDesc[i].getName();
+                if (destBean.isWritableProperty(name) && srcBean.isReadableProperty(name)) {
+                    Object srcValue = srcBean.getPropertyValue(name);
+                    if (srcValue != null) {
+                        destBean.setPropertyValue(name, srcValue);
+                    }
+                }
+            }
+
+        } catch (Exception var8) {
+            // TODO: 2021/7/11   明确异常信息，保证异常信息可以被上游感知到；否则难以定位问题
+            String msg="BeanUtils.bean2Bean 异常错误，请检查:";
+            if (var8!=null){
+                msg=msg+"ExceptionClassName = "+var8.getClass().getName()+"message = "+var8.getMessage();
+            }
+            throw var8;
+        }
+    }
 
 
 

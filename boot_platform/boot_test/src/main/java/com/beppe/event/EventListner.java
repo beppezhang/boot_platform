@@ -11,4 +11,5 @@ public class EventListner implements ApplicationListener<PublishEvent> {
         // 监听到信息开始执行
         System.out.println("监听到数据,publishEvent:"+publishEvent.getOrderUpdateInfo().getOperator());
     }
+
 }

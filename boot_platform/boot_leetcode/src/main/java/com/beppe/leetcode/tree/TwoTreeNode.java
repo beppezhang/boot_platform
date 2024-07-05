@@ -17,4 +17,7 @@ public class TwoTreeNode {
     public TwoTreeNode(int val) {
         this.val = val;
     }
+
+    public TwoTreeNode() {
+    }
 }

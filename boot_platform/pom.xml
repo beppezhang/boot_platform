@@ -37,7 +37,7 @@
         <module>boot_leetcode</module>
         <module>boot_scaf</module>
         <module>boot_flow</module>
-        <module>boot_yonghui_runner</module>
+<!--        <module>boot_yonghui_runner</module>-->
         <module>boot_event_bus</module>
     </modules>
 
@@ -48,6 +48,8 @@
         <version>2.2.4.RELEASE</version>
         <relativePath/>
     </parent>
+
+
 
     <description>monco boot 开发集成平台</description>
 

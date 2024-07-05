@@ -10,7 +10,7 @@ import org.springframework.cache.annotation.EnableCaching;
  * @description : 测试启动类
  */
 @SpringBootApplication
-//@EnableCaching
+@EnableCaching
 public class TestApplication {
 
     public static void main(String[] args) {

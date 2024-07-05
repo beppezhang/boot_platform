@@ -21,9 +21,9 @@ public class OrderServiceImpl implements OrderService, ApplicationEventPublisher
         // 订单创建成功
         System.out.println("订单-----");
         OrderUpdateInfo orderUpdateInfo = new OrderUpdateInfo();
-        orderUpdateInfo.setOrderId(10001l);
-        orderUpdateInfo.setUpdateType(2);
-        orderUpdateInfo.setOperator("zhang");
+//        orderUpdateInfo.setOrderId(10001l);
+//        orderUpdateInfo.setUpdateType(2);
+//        orderUpdateInfo.setOperator("zhang");
 
         // 发布一个创建成功事件
         applicationEventPublisher.publishEvent(new PublishEvent(this,orderUpdateInfo));
@@ -33,4 +33,5 @@ public class OrderServiceImpl implements OrderService, ApplicationEventPublisher
     public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
         this.applicationEventPublisher=applicationEventPublisher;
     }
+
 }

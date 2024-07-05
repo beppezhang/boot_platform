@@ -1,14 +1,22 @@
 package com.beppe.model;
 
-import java.math.BigDecimal;
+import com.beppe.entity.City;
+import org.apache.poi.ss.formula.functions.T;
 
-public class UserDto {
+import java.math.BigDecimal;
+import java.util.List;
+
+public class UserDto<T> {
 
     private String name;
 
     private Integer age;
 
     private BigDecimal amt;
+
+    private List<City> cityList;
+
+    private T form;
 
     public String getName() {
         return name;
@@ -32,5 +40,21 @@ public class UserDto {
 
     public void setAmt(BigDecimal amt) {
         this.amt = amt;
+    }
+
+    public List<City> getCityList() {
+        return cityList;
+    }
+
+    public void setCityList(List<City> cityList) {
+        this.cityList = cityList;
+    }
+
+    public T getForm() {
+        return form;
+    }
+
+    public void setForm(T form) {
+        this.form = form;
     }
 }

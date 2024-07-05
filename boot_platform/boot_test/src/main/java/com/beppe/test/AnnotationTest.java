@@ -2,7 +2,7 @@ package com.beppe.test;
 
 import com.beppe.annotation.MediumAnnotion;
 import com.beppe.service.OrderServiceImpl;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import java.lang.reflect.Method;
 

@@ -18,8 +18,9 @@ public class Demo2 {
         //  二叉树的最大深度   max(左子树,右子树)+1
 //        int left = maxDepth(node.left);
 //        int right = maxDepth(node.right);
-        int i = maxDepth(node);
-        System.out.println("最大直径:"+i);
+//        int i = maxDepth(node);
+//        System.out.println("最大直径:"+i);
+        rotateTree(node);
 
     }
 
@@ -39,6 +40,19 @@ public class Demo2 {
         return 1 + Math.max(leftMax, rightMax);
     }
 
+
+    // 翻转二叉树
+    private void rotateTree(TwoTreeNode node){
+        if(node==null){
+            return;
+        }
+        TwoTreeNode left = node.left;
+        node.left=node.right;
+        node.right=left;
+        rotateTree(node.left);
+        rotateTree(node.right);
+
+    }
 
 
 
