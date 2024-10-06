@@ -28,8 +28,8 @@
         <module>boot_dubbo_api</module>
         <module>boot_dubbo_consumer</module>
         <module>boot_dubbo_provider</module>
-<!--        <module>boot_extention_framework</module>-->
-<!--        <module>boot_annotation</module>-->
+        <module>boot_extention_framework</module>
+        <module>boot_annotation</module>
         <module>boot_push_service_center</module>
         <module>boot_push_service_sdk</module>
         <module>boot_command</module>

@@ -2,12 +2,14 @@ package com.beppe.cache;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
 @Service
+@CacheConfig(cacheManager = "defaultCacheManager11")
 public class CaffeineService {
 
     // 手动创建缓存
@@ -16,7 +18,7 @@ public class CaffeineService {
     @Qualifier("manualCache")
     private Cache<Object, Object> manualCache;
 
-    @Cacheable(value = "CaffeineService:getUser",cacheManager = "defaultCacheManager",key="#id")
+    @Cacheable(value = "CaffeineService:getUser",cacheManager = "defaultCacheManager",key="'all'")
     public String getUser(Long id){
         System.out.println("没有走缓存获取到数据");
         return "beppe"+id;
@@ -33,6 +35,7 @@ public class CaffeineService {
     public String getPerson(String personName){
         String name = (String)manualCache.get(personName,k-> getPersonName(personName));
         return name;
+
     }
 
     private String getPersonName(String personName){

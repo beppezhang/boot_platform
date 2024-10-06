@@ -15,6 +15,8 @@ public class Demo1 {
         System.out.println("结果：" + i);
     }
 
+
+
     private int sumNum(int[] arr, int n, int m) {
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {

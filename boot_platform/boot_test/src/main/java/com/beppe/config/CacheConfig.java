@@ -1,5 +1,7 @@
 package com.beppe.config;
 
+import com.beppe.entity.proxy.MyProxyEntity;
+import com.beppe.proxy.dynamic.ExtensionProxyFactoryBean;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import org.springframework.cache.CacheManager;
@@ -52,6 +54,11 @@ public class CacheConfig {
                 .maximumSize(500)
                 .build();
         return build;
+    }
+
+    @Bean
+    public ExtensionProxyFactoryBean ExtensionProxyFactoryBean() {
+        return new ExtensionProxyFactoryBean();
     }
 
 

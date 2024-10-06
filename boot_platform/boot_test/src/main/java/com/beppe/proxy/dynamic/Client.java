@@ -8,7 +8,6 @@ public class Client {
 
     @Test
     public void test1(){
-        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
         Subject subject = new RealSubject();
         SubjectProxy proxy=new SubjectProxy(subject);
 
