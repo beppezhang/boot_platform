@@ -18,7 +18,7 @@
         <module>boot_agiso</module>
         <module>boot_pageoffice</module>
         <module>boot_aliyun</module>
-        <module>boot_kafka</module>
+        <module>boot_mq</module>
         <module>boot_netty</module>
         <module>boot_retrofit</module>
         <module>boot_zookeeper</module>

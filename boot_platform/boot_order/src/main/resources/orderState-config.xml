@@ -4,7 +4,7 @@
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="orderStateManager" class="com.beppe.utils.OrderStateManagerImpl" primary="true">
+    <bean id="orderStateManager" class="com.beppe.kafka.utils.OrderStateManagerImpl" primary="true">
         <constructor-arg index="0">
             <map>
                 <!--创建订单-->
@@ -21,7 +21,7 @@
 
 
 
-    <bean id="orderCommandFactory" class="com.beppe.order.OrderCommandFactoryImpl">
+    <bean id="orderCommandFactory" class="com.beppe.kafka.order.OrderCommandFactoryImpl">
         <constructor-arg index="0">
             <list>
                 <!--持久化订单-->

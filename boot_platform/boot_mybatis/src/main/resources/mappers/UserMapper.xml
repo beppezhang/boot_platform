@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.beppe.mapper.UserMapper">
+<mapper namespace="com.beppe.kafka.mapper.UserMapper">
 
-	<select id="selectByPrimaryKey" resultType="com.beppe.model.User" >
+	<select id="selectByPrimaryKey" resultType="model.com.beppe.kafka.User" >
 		select
 		id, user_name, password, real_name
 		from user
@@ -10,7 +10,7 @@
 	</select>
 
 
-	<select id="selectUserList" resultType="com.beppe.model.User">
+	<select id="selectUserList" resultType="model.com.beppe.kafka.User">
 		select
 		id, user_name, password, real_name
 		from user

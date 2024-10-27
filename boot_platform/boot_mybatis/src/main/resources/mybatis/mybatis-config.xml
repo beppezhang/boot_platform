@@ -22,7 +22,7 @@
     </settings>
 
     <plugins>
-        <plugin interceptor="com.beppe.plugins.MyFirstPlugin">
+        <plugin interceptor="com.beppe.kafka.plugins.MyFirstPlugin">
             <property name="username" value="zhangsan"/>
         </plugin>
 
