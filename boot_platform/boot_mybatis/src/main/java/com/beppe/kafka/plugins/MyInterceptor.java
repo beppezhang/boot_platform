@@ -1,7 +1,11 @@
 package com.beppe.kafka.plugins;
 
-import org.apache.ibatis.executor.statement.StatementHandler;
+import com.beppe.kafka.service.CityService;
+import org.apache.ibatis.executor.Executor;
+import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.plugin.*;
+import org.apache.ibatis.session.ResultHandler;
+import org.apache.ibatis.session.RowBounds;
 
 import java.util.Properties;
 
@@ -12,19 +16,28 @@ import java.util.Properties;
  */
 @Intercepts(
         {
-                @Signature(type = StatementHandler.class, method = "parameterize",
-                        args = java.sql.Statement.class)
+                @Signature(type = Executor.class, method = "update", args = {MappedStatement.class, Object.class}),
+                @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class})
         }
 )
-public class MyFirstPlugin implements Interceptor {
+public class MyInterceptor implements Interceptor {
+
+    private final CityService cityService;
+
+    public MyInterceptor(CityService cityService) {
+        this.cityService = cityService;
+    }
 
     // 拦截目标对象中目标方法的执行
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
+        System.out.println("Before method: " + invocation.getMethod().getName());
         // 执行目标方法
-        Object proceed = invocation.proceed();
+        Object result = invocation.proceed();
+        cityService.getCityName();
         // 返回拦截之后的目标方法
-        return proceed;
+        System.out.println("After method: " + invocation.getMethod().getName());
+        return result;
     }
 
     // 包装目标对象,即为目标对象创建一个代理对象

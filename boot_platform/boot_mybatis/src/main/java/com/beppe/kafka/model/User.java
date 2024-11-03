@@ -1,5 +1,12 @@
 package com.beppe.kafka.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 
 /**
@@ -7,49 +14,24 @@ import java.io.Serializable;
  * @data 2020/9/2 35:45
  * @description : 数据库对象
  */
+@Data
+@Getter
+@Setter
+@TableName(value = "user" )
 public class User implements Serializable {
 
     private static final long serialVersionUID = -864026603758673556L;
 
-    private String username;
+    private String userName;
 
     private String password;
 
     private String realName;
 
+    @TableId(type = IdType.AUTO)
     private Integer id;
 
-    public String getUsername() {
-        return username;
-    }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getRealName() {
-        return realName;
-    }
-
-    public void setRealName(String realName) {
-        this.realName = realName;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 }
 
 

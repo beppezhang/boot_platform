@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @data 2020/9/2 15:39
  * @description :
  */
-@MapperScan("com.beppe.mapper")
+@MapperScan("com.beppe.kafka.mapper")
 @SpringBootApplication
 public class MybatisApplication {
 
