@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.monco.boot</groupId>
+    <artifactId>platform</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>boot_security</module>
+        <module>boot_redis</module>
+        <module>boot_xxl_job</module>
+        <module>boot_easypoi</module>
+        <module>boot_rabbitmq</module>
+        <module>boot_mybatis</module>
+        <module>boot_agiso</module>
+        <module>boot_pageoffice</module>
+        <module>boot_aliyun</module>
+        <module>boot_mq</module>
+        <module>boot_netty</module>
+        <module>boot_retrofit</module>
+        <module>boot_zookeeper</module>
+        <module>boot_order</module>
+        <module>boot_state_machine</module>
+        <module>boot_test</module>
+        <module>boot_dubbo_api</module>
+        <module>boot_dubbo_consumer</module>
+        <module>boot_dubbo_provider</module>
+        <module>boot_extention_framework</module>
+        <module>boot_annotation</module>
+        <module>boot_push_service_center</module>
+        <module>boot_push_service_sdk</module>
+        <module>boot_command</module>
+        <module>boot_handwrite_dubbo</module>
+        <module>boot_leetcode</module>
+        <module>boot_scaf</module>
+        <module>boot_flow</module>
+<!--        <module>boot_yonghui_runner</module>-->
+        <module>boot_event_bus</module>
+    </modules>
+
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.4.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+
+
+    <description>monco boot 开发集成平台</description>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
