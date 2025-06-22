@@ -9,36 +9,8 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>boot_security</module>
-        <module>boot_redis</module>
-        <module>boot_xxl_job</module>
-        <module>boot_easypoi</module>
-        <module>boot_rabbitmq</module>
-        <module>boot_mybatis</module>
-        <module>boot_agiso</module>
-        <module>boot_pageoffice</module>
-        <module>boot_aliyun</module>
-        <module>boot_mq</module>
-        <module>boot_netty</module>
-        <module>boot_retrofit</module>
-        <module>boot_zookeeper</module>
-        <module>boot_order</module>
-        <module>boot_state_machine</module>
         <module>boot_test</module>
-        <module>boot_dubbo_api</module>
-        <module>boot_dubbo_consumer</module>
-        <module>boot_dubbo_provider</module>
-        <module>boot_extention_framework</module>
-        <module>boot_annotation</module>
-        <module>boot_push_service_center</module>
-        <module>boot_push_service_sdk</module>
-        <module>boot_command</module>
-        <module>boot_handwrite_dubbo</module>
         <module>boot_leetcode</module>
-        <module>boot_scaf</module>
-        <module>boot_flow</module>
-<!--        <module>boot_yonghui_runner</module>-->
-        <module>boot_event_bus</module>
     </modules>
 
 
